@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace CalculatorWPF
 {
@@ -23,6 +24,20 @@ namespace CalculatorWPF
         public MainWindow()
         {
             InitializeComponent();
+            DataTable dt = new DataTable();
+
+            string entry;
+            int answer;
+
+            //https://www.c-sharpcorner.com/blogs/datatable-compute-method1
+            try
+            {
+                answer = (int)dt.Compute("entry", "");
+            }
+            catch
+            {
+
+            }
         }
     }
 }
