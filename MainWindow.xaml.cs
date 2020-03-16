@@ -39,5 +39,7 @@ namespace CalculatorWPF
 
             }
         }
+
+        // how am i gonna draw a cone on a 2d plane hmm
     }
 }
