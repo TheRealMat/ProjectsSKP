@@ -6,7 +6,7 @@ namespace NumberGame
 {
     class Game
     {
-        int attempts = 0;
+        int attemptsLeft;
         int maxAttempts = 3;
         int streak = 0;
         RandomNumGen rng = new RandomNumGen();
@@ -15,6 +15,7 @@ namespace NumberGame
 
         public Game()
         {
+            attemptsLeft = maxAttempts;
             guessingNum = rng.RandomNumber(0, 10);
         }
         public bool CheckIfNumber(string entry)
@@ -33,20 +34,21 @@ namespace NumberGame
         public void GameScreen()
         {
             UI("asdasd");
-            while (attempts < maxAttempts)
+            while (attemptsLeft > 0)
             {
                 string test = Console.ReadLine();
                 Console.Clear();
+                Console.WriteLine(guessingNum);
 
                 if (CheckIfNumber(test) == true)
                 {
-                    attempts++;
+                    attemptsLeft--;
 
                     if (Convert.ToInt32(test) == guessingNum)
                     {
-
                         guessingNum = rng.RandomNumber(0, 10);
-                        attempts = 0;
+                        maxAttempts += attemptsLeft;
+                        attemptsLeft = maxAttempts; // how does this make sense? after a few attempts it becomes impossible to lose
                         streak++;
                         UI("good job retard");
                     }
@@ -58,7 +60,7 @@ namespace NumberGame
                     {
                         UI("that's too fucking high. are you dense?");
                     }
-                    if (attempts >= maxAttempts)
+                    if (attemptsLeft == 0)
                     {
                         gameover = true;
                     }
@@ -66,7 +68,7 @@ namespace NumberGame
                 else
                 {
                     Console.WriteLine("yeah real funny asshole");
-                    attempts = maxAttempts;
+                    attemptsLeft = 0;
                 }
 
 
@@ -76,7 +78,7 @@ namespace NumberGame
         public void UI(string feedback)
         {
             Console.WriteLine("streak: {0}",streak);
-            Console.WriteLine("Attempts: {0} of {1}", attempts, maxAttempts);
+            Console.WriteLine("Attempts: {0} of {1}", attemptsLeft, maxAttempts);
             Console.WriteLine("Enter a number between 0 and 10");
             Console.WriteLine(feedback);
 
