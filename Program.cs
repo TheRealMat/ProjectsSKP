@@ -10,11 +10,8 @@ namespace NumberGame
 
             Game game = new Game();
 
-            game.IntroScreen();
             game.GameScreen();
             game.GameOverScreen();
-
-
 
         }
     }

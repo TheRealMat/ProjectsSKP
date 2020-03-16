@@ -11,48 +11,79 @@ namespace NumberGame
         int streak = 0;
         RandomNumGen rng = new RandomNumGen();
         int guessingNum;
+        bool gameover = false;
+
         public Game()
         {
             guessingNum = rng.RandomNumber(0, 10);
         }
+        public bool CheckIfNumber(string entry)
+        {
+            try
+            {
+                Convert.ToInt32(entry);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
 
         public void GameScreen()
         {
+            UI("asdasd");
             while (attempts < maxAttempts)
             {
                 string test = Console.ReadLine();
                 Console.Clear();
 
-                attempts++;
-                try
+                if (CheckIfNumber(test) == true)
                 {
-                    Convert.ToInt32(test);
+                    attempts++;
+
+                    if (Convert.ToInt32(test) == guessingNum)
+                    {
+
+                        guessingNum = rng.RandomNumber(0, 10);
+                        attempts = 0;
+                        streak++;
+                        UI("good job retard");
+                    }
+                    else if (Convert.ToInt32(test) < guessingNum)
+                    {
+                        UI("too low dumbass");
+                    }
+                    else if (Convert.ToInt32(test) > guessingNum)
+                    {
+                        UI("that's too fucking high. are you dense?");
+                    }
+                    if (attempts >= maxAttempts)
+                    {
+                        gameover = true;
+                    }
                 }
-                catch
+                else
                 {
-                    Console.WriteLine("fuck you. game over");
-                    return;
+                    Console.WriteLine("yeah real funny asshole");
+                    attempts = maxAttempts;
                 }
 
-                if (Convert.ToInt32(test) == guessingNum)
-                {
-                    Console.WriteLine("good job retard");
-                }
-                else if (Convert.ToInt32(test) < guessingNum)
-                {
-                    Console.WriteLine("too low dumbass");
-                }
-                else if (Convert.ToInt32(test) > guessingNum)
-                {
-                    Console.WriteLine("that's too fucking high. are you dense?");
-                }
+
             }
         }
 
-        public void IntroScreen()
+        public void UI(string feedback)
         {
+            Console.WriteLine("streak: {0}",streak);
+            Console.WriteLine("Attempts: {0} of {1}", attempts, maxAttempts);
             Console.WriteLine("Enter a number between 0 and 10");
+            Console.WriteLine(feedback);
+
+
         }
+
+
 
         public void GameOverScreen()
         {
