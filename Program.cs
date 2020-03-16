@@ -2,8 +2,20 @@
 
 namespace NumberGame
 {
-    class Program
+    public class Program
     {
+        int guessingNum { get; set; }
+        public static void Main(string[] args)
+        {
 
+            Game game = new Game();
+
+            game.IntroScreen();
+            game.GameScreen();
+            game.GameOverScreen();
+
+
+
+        }
     }
 }
