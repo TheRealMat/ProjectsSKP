@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace NumberGame
@@ -12,11 +13,16 @@ namespace NumberGame
         RandomNumGen rng = new RandomNumGen();
         int guessingNum;
         bool gameover = false;
+        string name = "asshole";
+        List<HighScore> highscores = new List<HighScore>();
 
         public Game()
         {
             attemptsLeft = maxAttempts;
             guessingNum = rng.RandomNumber(0, 10);
+
+            // makes highscores ordered properly
+            List<HighScore> ordered = highscores.OrderByDescending(HighScore => HighScore.Score).ToList();
         }
         public bool CheckIfNumber(string entry)
         {
@@ -38,7 +44,6 @@ namespace NumberGame
             {
                 string test = Console.ReadLine();
                 Console.Clear();
-                Console.WriteLine(guessingNum);
 
                 if (CheckIfNumber(test) == true)
                 {
@@ -71,7 +76,6 @@ namespace NumberGame
                     attemptsLeft = 0;
                 }
 
-
             }
         }
 
@@ -90,6 +94,15 @@ namespace NumberGame
         public void GameOverScreen()
         {
             Console.WriteLine("Game over");
+            Console.WriteLine("Enter your name: ");
+            name = Console.ReadLine();
+        }
+
+
+        public void AddScore()
+        {
+            HighScore score = new HighScore(name, streak);
+            highscores.Add(score);
         }
     }
 }
