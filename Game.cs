@@ -22,6 +22,8 @@ namespace NumberGame
 
         public Game()
         {
+            highscores = JsonSerializer.Deserialize<List<HighScore>>(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "HighScores.json")));
+
             attemptsLeft = maxAttempts;
             guessingNum = rng.RandomNumber(0, 10);
 
