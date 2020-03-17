@@ -14,6 +14,7 @@
             </Grid.ColumnDefinitions>
             <Canvas x:Name="Canvas1" Grid.Column="1"/>
             <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="71,65,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="114"/>
+            <Button Click="Button_Click" Content="Button" HorizontalAlignment="Left" Margin="167,184,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 </Window>

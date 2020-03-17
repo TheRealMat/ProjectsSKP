@@ -21,23 +21,16 @@ namespace CalculatorWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        string entry;
+        DataTable dt = new DataTable();
         public MainWindow()
         {
             InitializeComponent();
-            DataTable dt = new DataTable();
 
-            string entry;
-            int answer;
 
-            //https://www.c-sharpcorner.com/blogs/datatable-compute-method1
-            try
-            {
-                answer = (int)dt.Compute("entry", "");
-            }
-            catch
-            {
 
-            }
+
+
 
             Polygon p = new Polygon();
             p.Stroke = Brushes.Black;
@@ -49,6 +42,28 @@ namespace CalculatorWPF
 
             Canvas1.Children.Add(p);
 
+        }
+
+        private string Calculate(string entry)
+        {
+            string answer = "null";
+            //https://www.c-sharpcorner.com/blogs/datatable-compute-method1
+            try
+            {
+                answer = dt.Compute(entry, string.Empty).ToString();
+            }
+            catch
+            {
+
+            }
+            return answer;
+        }
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            entry = TextBox1.Text;
+            TextBox1.Text = Calculate(entry);
         }
 
         // how am i gonna draw a cone on a 2d plane hmm
