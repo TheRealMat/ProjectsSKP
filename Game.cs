@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.IO;
 
 namespace NumberGame
 {
@@ -113,7 +114,7 @@ namespace NumberGame
             //https://codeburst.io/working-with-json-in-net-core-3-2fd1236126c1
             HighScore score = new HighScore(name, streak);
             highscores.Add(score);
-            var modelJson = JsonSerializer.Serialize(highscores, options);
+            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "HighScores.json"), JsonSerializer.Serialize(highscores, options));
         }
     }
 }
