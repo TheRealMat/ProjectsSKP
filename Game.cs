@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace NumberGame
 {
@@ -15,6 +17,7 @@ namespace NumberGame
         bool gameover = false;
         string name = "asshole";
         List<HighScore> highscores = new List<HighScore>();
+        
 
         public Game()
         {
@@ -23,6 +26,7 @@ namespace NumberGame
 
             // makes highscores ordered properly
             List<HighScore> ordered = highscores.OrderByDescending(HighScore => HighScore.Score).ToList();
+
         }
         public bool CheckIfNumber(string entry)
         {
@@ -85,8 +89,6 @@ namespace NumberGame
             Console.WriteLine("Attempts: {0} of {1}", attemptsLeft, maxAttempts);
             Console.WriteLine("Enter a number between 0 and 10");
             Console.WriteLine(feedback);
-
-
         }
 
 
@@ -96,13 +98,22 @@ namespace NumberGame
             Console.WriteLine("Game over");
             Console.WriteLine("Enter your name: ");
             name = Console.ReadLine();
+            AddScore();
         }
 
 
         public void AddScore()
         {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                WriteIndented = true
+            };
+
+            //https://codeburst.io/working-with-json-in-net-core-3-2fd1236126c1
             HighScore score = new HighScore(name, streak);
             highscores.Add(score);
+            var modelJson = JsonSerializer.Serialize(highscores, options);
         }
     }
 }
