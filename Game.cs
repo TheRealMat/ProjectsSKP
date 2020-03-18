@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace NumberGame
 {
@@ -22,7 +23,7 @@ namespace NumberGame
 
         public Game()
         {
-            highscores = JsonSerializer.Deserialize<List<HighScore>>(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "HighScores.json")));
+            highscores = JsonConvert.DeserializeObject<List<HighScore>>(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "HighScores.json")));
 
             attemptsLeft = maxAttempts;
             guessingNum = rng.RandomNumber(0, 10);
@@ -116,7 +117,7 @@ namespace NumberGame
             //https://codeburst.io/working-with-json-in-net-core-3-2fd1236126c1
             HighScore score = new HighScore(name, streak);
             highscores.Add(score);
-            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "HighScores.json"), JsonSerializer.Serialize(highscores, options));
+            File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "HighScores.json"), System.Text.Json.JsonSerializer.Serialize(highscores, options));
         }
     }
 }
