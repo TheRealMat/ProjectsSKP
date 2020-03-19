@@ -7,30 +7,50 @@ public class TileInteract : MonoBehaviour
 {
     public Grid grid; //Set a Grid or Tilemap object to this in the Editor
     public Tilemap tileMap; //Set a Tilemap object to this in the Editor
+    public RuleTile selectedTile;
     public void Update()
     {
 
         //Detect when mouse is clicked
         if (Input.GetMouseButtonDown(0))
         {
-            //Get position of the mouseclick
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Convert position of the mouseclick to the position of the tile located at the mouseclick
-            Vector3Int coordinate = grid.WorldToCell(mouseWorldPos);
+            ////Display tile position in log
+            //Debug.Log(coordinate);
+            ////Display the sprite value of the tile in log *SUCCESS*
+            //Debug.Log(tileMap.GetSprite(coordinate));
 
-            //Display tile position in log
-            Debug.Log(coordinate);
-            //Display the sprite value of the tile in log *SUCCESS*
-            Debug.Log(tileMap.GetSprite(coordinate));
+            //ChangeTile(coordinate, null);
 
-            // get reference to tile
-            tileMap.GetTile(coordinate);
+            // Set tile to selectedTile
+            ChangeTile(WorldToTilePos(GetMousePosition()), selectedTile);
 
-            DeleteTile(coordinate);
+
+        }
+        //Right click
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Set tile to null
+            ChangeTile(WorldToTilePos(GetMousePosition()), null);
         }
     }
-    public void DeleteTile(Vector3Int coordinate)
+    public Vector3 GetMousePosition()
     {
-        tileMap.SetTile(coordinate, null);
+        //Get position of the mouseclick
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return mouseWorldPos;
     }
+
+    public Vector3Int WorldToTilePos(Vector3 worldPos)
+    {
+        //Convert position of the mouseclick to the position of the tile located at the mouseclick
+        Vector3Int coordinate = grid.WorldToCell(worldPos);
+        return coordinate;
+    }
+
+
+    public void ChangeTile(Vector3Int coordinate, RuleTile tile)
+    {
+        tileMap.SetTile(coordinate, tile);
+    }
+
 }

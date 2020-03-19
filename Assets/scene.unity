@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 647266756}
   tileMap: {fileID: 1993300643}
+  selectedTile: {fileID: 11400000, guid: 1802824e8f7c83c4eb09a87bb9249d6a, type: 2}
 --- !u!1 &1742679359
 GameObject:
   m_ObjectHideFlags: 0
