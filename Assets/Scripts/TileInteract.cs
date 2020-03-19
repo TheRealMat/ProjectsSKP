@@ -26,6 +26,11 @@ public class TileInteract : MonoBehaviour
             // get reference to tile
             tileMap.GetTile(coordinate);
 
+            DeleteTile(coordinate);
         }
+    }
+    public void DeleteTile(Vector3Int coordinate)
+    {
+        tileMap.SetTile(coordinate, null);
     }
 }
