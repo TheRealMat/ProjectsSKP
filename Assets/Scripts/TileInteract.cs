@@ -11,8 +11,8 @@ public class TileInteract : MonoBehaviour
     public void Update()
     {
 
-        //Detect when mouse is clicked
-        if (Input.GetMouseButtonDown(0))
+        //Left click
+        if (Input.GetMouseButton(0))
         {
             ////Display tile position in log
             //Debug.Log(coordinate);
@@ -21,10 +21,13 @@ public class TileInteract : MonoBehaviour
 
             //ChangeTile(coordinate, null);
 
-            // Set tile to selectedTile
-            ChangeTile(WorldToTilePos(GetMousePosition()), selectedTile);
 
 
+            if (TileAdjacent(WorldToTilePos(GetMousePosition())))
+            {
+                // Set tile to selectedTile
+                ChangeTile(WorldToTilePos(GetMousePosition()), selectedTile);
+            }
         }
         //Right click
         if (Input.GetMouseButtonDown(1))
@@ -33,6 +36,40 @@ public class TileInteract : MonoBehaviour
             ChangeTile(WorldToTilePos(GetMousePosition()), null);
         }
     }
+
+    // checks if any tiles exist adjacent to coordinate
+    public bool TileAdjacent(Vector3Int coordinate)
+    {
+        // sue me
+        if (TileExists(new Vector3Int(coordinate.x + 1, coordinate.y, coordinate.z)))
+        {
+            return true;
+        }
+        if (TileExists(new Vector3Int(coordinate.x - 1, coordinate.y, coordinate.z)))
+        {
+            return true;
+        }
+        if (TileExists(new Vector3Int(coordinate.x, coordinate.y + 1, coordinate.z)))
+        {
+            return true;
+        }
+        if (TileExists(new Vector3Int(coordinate.x, coordinate.y - 1, coordinate.z)))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    // does a tile exist at this coordinate?
+    public bool TileExists(Vector3Int coordinate)
+    {
+        if (tileMap.GetSprite(coordinate) != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public Vector3 GetMousePosition()
     {
         //Get position of the mouseclick
