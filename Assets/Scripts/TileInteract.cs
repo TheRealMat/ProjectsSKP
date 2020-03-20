@@ -7,6 +7,7 @@ public class TileInteract : MonoBehaviour
 {
     public Grid grid; //Set a Grid or Tilemap object to this in the Editor
     public Tilemap tileMap; //Set a Tilemap object to this in the Editor
+    public Tilemap tileMapBackground; //Set a Tilemap object to this in the Editor
     public RuleTile selectedTile;
     public void Update()
     {
@@ -21,37 +22,41 @@ public class TileInteract : MonoBehaviour
 
             //ChangeTile(coordinate, null);
 
-            if (TileAdjacent(WorldToTilePos(GetMousePosition())))
+            if (TileAdjacent(tileMap, WorldToTilePos(GetMousePosition())) || TileExists(tileMapBackground, WorldToTilePos(GetMousePosition())))
             {
                 // Set tile to selectedTile
-                ChangeTile(WorldToTilePos(GetMousePosition()), selectedTile);
+                ChangeTile(tileMap, WorldToTilePos(GetMousePosition()), selectedTile);
             }
         }
         //Right click
         if (Input.GetMouseButton(1))
         {
-            // Set tile to null
-            ChangeTile(WorldToTilePos(GetMousePosition()), null);
+            if (TileAdjacent(tileMapBackground, WorldToTilePos(GetMousePosition())) || TileExists(tileMap, WorldToTilePos(GetMousePosition())))
+            {
+                // Set tile to selectedTile
+                ChangeTile(tileMapBackground, WorldToTilePos(GetMousePosition()), selectedTile);
+            }
         }
     }
 
+
     // checks if any tiles exist adjacent to coordinate
-    public bool TileAdjacent(Vector3Int coordinate)
+    public bool TileAdjacent(Tilemap map, Vector3Int coordinate)
     {
         // sue me
-        if (TileExists(new Vector3Int(coordinate.x + 1, coordinate.y, coordinate.z)))
+        if (TileExists(map, new Vector3Int(coordinate.x + 1, coordinate.y, coordinate.z)))
         {
             return true;
         }
-        if (TileExists(new Vector3Int(coordinate.x - 1, coordinate.y, coordinate.z)))
+        if (TileExists(map, new Vector3Int(coordinate.x - 1, coordinate.y, coordinate.z)))
         {
             return true;
         }
-        if (TileExists(new Vector3Int(coordinate.x, coordinate.y + 1, coordinate.z)))
+        if (TileExists(map, new Vector3Int(coordinate.x, coordinate.y + 1, coordinate.z)))
         {
             return true;
         }
-        if (TileExists(new Vector3Int(coordinate.x, coordinate.y - 1, coordinate.z)))
+        if (TileExists(map, new Vector3Int(coordinate.x, coordinate.y - 1, coordinate.z)))
         {
             return true;
         }
@@ -59,10 +64,10 @@ public class TileInteract : MonoBehaviour
     }
 
     // does a tile exist at this coordinate?
-    public bool TileExists(Vector3Int coordinate)
+    public bool TileExists(Tilemap map, Vector3Int coordinate)
     {
         // returns true or false
-        return tileMap.GetSprite(coordinate) != null;
+        return map.GetSprite(coordinate) != null;
     }
 
     public Vector3 GetMousePosition()
@@ -80,9 +85,9 @@ public class TileInteract : MonoBehaviour
     }
 
 
-    public void ChangeTile(Vector3Int coordinate, RuleTile tile)
+    public void ChangeTile(Tilemap map, Vector3Int coordinate, RuleTile tile)
     {
-        tileMap.SetTile(coordinate, tile);
+        map.SetTile(coordinate, tile);
     }
 
 }
