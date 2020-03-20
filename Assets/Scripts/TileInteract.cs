@@ -21,8 +21,6 @@ public class TileInteract : MonoBehaviour
 
             //ChangeTile(coordinate, null);
 
-
-
             if (TileAdjacent(WorldToTilePos(GetMousePosition())))
             {
                 // Set tile to selectedTile
@@ -30,7 +28,7 @@ public class TileInteract : MonoBehaviour
             }
         }
         //Right click
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             // Set tile to null
             ChangeTile(WorldToTilePos(GetMousePosition()), null);
@@ -63,11 +61,8 @@ public class TileInteract : MonoBehaviour
     // does a tile exist at this coordinate?
     public bool TileExists(Vector3Int coordinate)
     {
-        if (tileMap.GetSprite(coordinate) != null)
-        {
-            return true;
-        }
-        return false;
+        // returns true or false
+        return tileMap.GetSprite(coordinate) != null;
     }
 
     public Vector3 GetMousePosition()
