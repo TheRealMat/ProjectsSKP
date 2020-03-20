@@ -28,6 +28,7 @@ public class TileInteract : MonoBehaviour
                 ChangeTile(tileMap, WorldToTilePos(GetMousePosition()), selectedTile);
             }
         }
+
         //Right click
         if (Input.GetMouseButton(1))
         {
@@ -35,6 +36,23 @@ public class TileInteract : MonoBehaviour
             {
                 // Set tile to selectedTile
                 ChangeTile(tileMapBackground, WorldToTilePos(GetMousePosition()), selectedTile);
+            }
+        }
+
+        // Middle mouse
+        if (Input.GetMouseButtonDown(2))
+        {
+            // gets forground tile else gets background tile
+            if (TileExists(tileMap, WorldToTilePos(GetMousePosition())))
+            {
+                selectedTile = tileMap.GetTile<RuleTile>(WorldToTilePos(GetMousePosition()));
+            }
+            else
+            {
+                if (TileExists(tileMapBackground, WorldToTilePos(GetMousePosition())))
+                {
+                    selectedTile = tileMapBackground.GetTile<RuleTile>(WorldToTilePos(GetMousePosition()));
+                }
             }
         }
     }
