@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 374063165}
   - component: {fileID: 374063166}
   m_Layer: 9
-  m_Name: Background (2)
+  m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1698,7 +1698,7 @@ GameObject:
   - component: {fileID: 999716247}
   - component: {fileID: 999716248}
   m_Layer: 9
-  m_Name: Background (3)
+  m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,7 +1779,7 @@ GameObject:
   - component: {fileID: 1099583093}
   - component: {fileID: 1099583094}
   m_Layer: 9
-  m_Name: Background (2)
+  m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 1169972520}
   - component: {fileID: 1169972521}
   m_Layer: 9
-  m_Name: Background (3)
+  m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2169,7 +2169,7 @@ GameObject:
   - component: {fileID: 1713644969}
   - component: {fileID: 1713644970}
   m_Layer: 9
-  m_Name: Background
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2254,7 +2254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1742679359}
-  parallaxAmount: -0.3
+  parallaxAmount: 0.9
 --- !u!1 &1742679359
 GameObject:
   m_ObjectHideFlags: 0
@@ -7197,7 +7197,7 @@ GameObject:
   - component: {fileID: 2059790113}
   - component: {fileID: 2059790114}
   m_Layer: 9
-  m_Name: Background (1)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7282,4 +7282,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1742679359}
-  parallaxAmount: -0.1
+  parallaxAmount: 0.8
