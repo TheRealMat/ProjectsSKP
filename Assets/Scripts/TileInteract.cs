@@ -9,10 +9,12 @@ public class TileInteract : MonoBehaviour
     public Tilemap tileMap; //Set a Tilemap object to this in the Editor
     public Tilemap tileMapBackground; //Set a Tilemap object to this in the Editor
     public RuleTile selectedTile;
+    public float tileRange;
     public void Update()
     {
 
-        //Left click
+        // Left click
+        // used to place tile
         if (Input.GetMouseButton(0))
         {
             ////Display tile position in log
@@ -22,24 +24,35 @@ public class TileInteract : MonoBehaviour
 
             //ChangeTile(coordinate, null);
 
-            if (TileAdjacent(tileMap, WorldToTilePos(GetMousePosition())) || TileExists(tileMapBackground, WorldToTilePos(GetMousePosition())))
+            // check if tile is too far away
+            if (Vector3.Distance(transform.position, WorldToTilePos(GetMousePosition())) < tileRange)
             {
-                // Set tile to selectedTile
-                ChangeTile(tileMap, WorldToTilePos(GetMousePosition()), selectedTile);
+                if (TileAdjacent(tileMap, WorldToTilePos(GetMousePosition())) || TileExists(tileMapBackground, WorldToTilePos(GetMousePosition())))
+                {
+                    // Set tile to selectedTile
+                    ChangeTile(tileMap, WorldToTilePos(GetMousePosition()), selectedTile);
+                }
             }
+
         }
 
-        //Right click
+        // Right click
+        // used to place tile as background
         if (Input.GetMouseButton(1))
         {
-            if (TileAdjacent(tileMapBackground, WorldToTilePos(GetMousePosition())) || TileExists(tileMap, WorldToTilePos(GetMousePosition())))
+            if (Vector3.Distance(transform.position, WorldToTilePos(GetMousePosition())) < tileRange)
             {
-                // Set tile to selectedTile
-                ChangeTile(tileMapBackground, WorldToTilePos(GetMousePosition()), selectedTile);
+                if (TileAdjacent(tileMapBackground, WorldToTilePos(GetMousePosition())) || TileExists(tileMap, WorldToTilePos(GetMousePosition())))
+                {
+                    // Set tile to selectedTile
+                    ChangeTile(tileMapBackground, WorldToTilePos(GetMousePosition()), selectedTile);
+                }
             }
+
         }
 
         // Middle mouse
+        // used to select a tile to place down
         if (Input.GetMouseButtonDown(2))
         {
             // gets forground tile else gets background tile
