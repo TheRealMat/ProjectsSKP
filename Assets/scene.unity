@@ -6054,9 +6054,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1993300643}
-  width: 100
+  width: 400
   height: 100
   testTile: {fileID: 11400000, guid: 1802824e8f7c83c4eb09a87bb9249d6a, type: 2}
+  seed: 80085
+  floorPercent: 20
 --- !u!4 &892725265
 Transform:
   m_ObjectHideFlags: 0
