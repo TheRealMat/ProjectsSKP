@@ -18,7 +18,7 @@ public class MapGen : MonoBehaviour
     public RuleTile testTile;
     public float seed;
 
-    private int[,] map;
+    private sbyte[,] map;
 
     private void Start()
     {
@@ -30,9 +30,9 @@ public class MapGen : MonoBehaviour
 
 
     // creates array. empty decides if it should be full or empty
-    public static int[,] GenerateArray(int width, int height, bool empty)
+    public static sbyte[,] GenerateArray(int width, int height, bool empty)
     {
-        int[,] map = new int[width, height];
+        sbyte[,] map = new sbyte[width, height];
         for (int x = 0; x < map.GetUpperBound(0); x++)
         {
             for (int y = 0; y < map.GetUpperBound(1); y++)
@@ -51,7 +51,7 @@ public class MapGen : MonoBehaviour
     }
 
     // put into tilemap
-    public static void RenderMap(int[,] map, Tilemap tilemap, TileBase tile)
+    public static void RenderMap(sbyte[,] map, Tilemap tilemap, TileBase tile)
     {
         //Clear the map (ensures we dont overlap)
         tilemap.ClearAllTiles();
@@ -86,7 +86,7 @@ public class MapGen : MonoBehaviour
         }
     }
 
-    public static int[,] PerlinNoiseCave(int[,] map, float modifier, bool edgesAreWalls)
+    public static sbyte[,] PerlinNoiseCave(sbyte[,] map, float modifier, bool edgesAreWalls)
     {
         int newPoint;
         for (int x = 0; x < map.GetUpperBound(0); x++)
@@ -102,7 +102,7 @@ public class MapGen : MonoBehaviour
                 {
                     //Generate a new point using Perlin noise, then round it to a value of either 0 or 1
                     newPoint = Mathf.RoundToInt(Mathf.PerlinNoise(x * modifier, y * modifier));
-                    map[x, y] = newPoint;
+                    map[x, y] = (sbyte)newPoint;
                 }
             }
         }
