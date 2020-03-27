@@ -66,7 +66,6 @@ public class HexGrid : MonoBehaviour
 
 
 
-	// ---------------cell interaction----------------move later------------------------------------------
 
 
 	public void ColorCell(Vector3 position, Color color)
@@ -79,7 +78,7 @@ public class HexGrid : MonoBehaviour
 		hexMesh.Triangulate(cells);
 	}
 
-	//-------------------------------------------------------------------------
+
 
 
 
