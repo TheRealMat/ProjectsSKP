@@ -30,6 +30,7 @@ namespace Pizzaria
 
 
             InitializeComponent();
+            // sets the pizzas list as databinding on the datatemplate
             lvDataBinding.ItemsSource = pizzaTypes.pizzas;
         }
     }

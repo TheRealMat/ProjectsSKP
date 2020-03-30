@@ -30,6 +30,7 @@ namespace Pizzaria
             this.PizzaPrice = PizzaPrice;
             this.Ingredients = Ingredients;
 
+            // list has to be displayed as a string in the databinding
             this.pizzaIngredients = combineString(Ingredients);
 
         }
