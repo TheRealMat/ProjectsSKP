@@ -14,6 +14,10 @@ namespace Pizzaria
         public double PizzaPrice { get { return pizzaPrice; } set { pizzaPrice = value; } }
 
 
+        private string pizzaIngredients;
+        public String PizzaIngredients { get { return pizzaIngredients; } set { pizzaIngredients = value; } }
+
+
         private List<string> ingredients = new List<string>();
         public List<string> Ingredients { get { return ingredients; } set { ingredients = value; } }
 
@@ -25,7 +29,25 @@ namespace Pizzaria
             this.PizzaName = PizzaName;
             this.PizzaPrice = PizzaPrice;
             this.Ingredients = Ingredients;
+
+            this.pizzaIngredients = combineString(Ingredients);
+
         }
+        
+        private string combineString(List<string> list)
+        {
+            string converted = "";
+            foreach(string str in list)
+            {
+                converted += str;
+                converted += ", ";
+            }
+
+
+
+            return converted;
+        }
+
 
     }
 }

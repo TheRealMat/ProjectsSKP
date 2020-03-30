@@ -29,8 +29,6 @@ namespace Pizzaria
             pizzaTypes.AddPizza(new Pizza("Prosciutto", 6, new List<string>() { "tomato sauce", "mozzarella", "ham", "oregano" }));
 
 
-
-
             InitializeComponent();
             lvDataBinding.ItemsSource = pizzaTypes.pizzas;
         }
