@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:Pizzaria"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type local:PizzaTypes}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
 
+                <TextBlock Grid.Column="0" Text="{Binding Price}"/>
+                <TextBlock Grid.Column="1" Text="{Binding Name}"/>
+                <TextBlock Grid.Column="2" Text="{Binding Indredients}"/>
+                <Button>Buy</Button>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <ItemsControl Name="lvDataBinding"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
