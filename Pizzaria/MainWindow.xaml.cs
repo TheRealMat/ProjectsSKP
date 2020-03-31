@@ -35,11 +35,51 @@ namespace Pizzaria
 
             InitializeComponent();
             // sets the pizzas list as databinding on the datatemplate
-            lvDataBinding.ItemsSource = PizzaTypes.pizzas;
+            cmbColors.ItemsSource = PizzaTypes.pizzas;
+            cheeses.ItemsSource = IngredientTypes.cheeses;
+            doughs.ItemsSource = IngredientTypes.doughs;
+            sauces.ItemsSource = IngredientTypes.sauces;
+            spices.ItemsSource = IngredientTypes.spices;
+            toppings.ItemsSource = IngredientTypes.toppings;
+
+
+
+
+
 
 
         }
         private void SelectPizza_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            selectedPizza = ((Pizza)btnsrs.DataContext);
+
+        }
+        private void SelectDoughs_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            selectedPizza = ((Pizza)btnsrs.DataContext);
+
+        }
+        private void SelectSpices_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            selectedPizza = ((Pizza)btnsrs.DataContext);
+
+        }
+        private void SelectCheeses_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            selectedPizza = ((Pizza)btnsrs.DataContext);
+
+        }
+        private void SelectToppings_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            selectedPizza = ((Pizza)btnsrs.DataContext);
+
+        }
+        private void SelectSauces_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
             selectedPizza = ((Pizza)btnsrs.DataContext);
