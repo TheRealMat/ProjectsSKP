@@ -35,15 +35,17 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Name="doughs">
-            <ComboBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
-                        <TextBlock Text="{Binding IngredientName}"/>
-                    </Button>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <WrapPanel>
+            <ItemsControl Name="doughs">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Ingredient}">
+                        <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding IngredientName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </WrapPanel>
         <ComboBox Name="sauces">
             <ComboBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Ingredient}">

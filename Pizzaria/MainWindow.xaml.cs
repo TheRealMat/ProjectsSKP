@@ -58,31 +58,26 @@ namespace Pizzaria
         private void SelectDoughs_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza = ((Pizza)btnsrs.DataContext);
 
         }
         private void SelectSpices_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza = ((Pizza)btnsrs.DataContext);
 
         }
         private void SelectCheeses_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza = ((Pizza)btnsrs.DataContext);
 
         }
         private void SelectToppings_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza = ((Pizza)btnsrs.DataContext);
 
         }
         private void SelectSauces_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza = ((Pizza)btnsrs.DataContext);
 
         }
     }
