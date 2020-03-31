@@ -20,6 +20,7 @@ namespace Pizzaria
     /// </summary>
     public partial class MainWindow : Window
     {
+        Pizza selectedPizza;
         public MainWindow()
         {
             // here we make-a the molto bene little bambinos
@@ -35,6 +36,14 @@ namespace Pizzaria
             InitializeComponent();
             // sets the pizzas list as databinding on the datatemplate
             lvDataBinding.ItemsSource = PizzaTypes.pizzas;
+
+
+        }
+        private void SelectPizza_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            selectedPizza = ((Pizza)btnsrs.DataContext);
+
         }
     }
 }

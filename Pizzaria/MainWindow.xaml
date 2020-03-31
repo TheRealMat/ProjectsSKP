@@ -22,7 +22,7 @@
                 <TextBlock Margin="5" Grid.Column="0" Text="{Binding PizzaPrice}"/>
                 <TextBlock Margin="5" Grid.Column="1" Text="{Binding PizzaName}"/>
                 <TextBlock Margin="5" Grid.Column="2" TextWrapping="Wrap" Text="{Binding PizzaIngredients}"/>
-                <Button Margin="5" Grid.Column="3">Buy</Button>
+                <Button Click="SelectPizza_Click" Margin="5" Grid.Column="3">Select</Button>
             </Grid>
         </DataTemplate>
     </Window.Resources>
