@@ -13,7 +13,6 @@ namespace Pizzaria
         public Ingredient(string SauceName)
         {
             this.IngredientName = SauceName;
-
         }
 
     }

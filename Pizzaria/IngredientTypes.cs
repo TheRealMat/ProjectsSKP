@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Pizzaria
 {
-    class IngredientTypes
+    static class IngredientTypes
     {
-        public List<Ingredient> sauces { get; } = new List<Ingredient>() { 
+        public static List<Ingredient> sauces { get; } = new List<Ingredient>() { 
             new Ingredient("tomato sauce")
 
         };
 
-        public List<Ingredient> toppings { get; } = new List<Ingredient>() {
+        public static List<Ingredient> toppings { get; } = new List<Ingredient>() {
             new Ingredient("pepperoni"),
             new Ingredient("mozzarella"),
             new Ingredient("bacon"),
@@ -19,7 +19,6 @@ namespace Pizzaria
             new Ingredient("sausage"),
             new Ingredient("onion"),
             new Ingredient("mushroom"),
-            new Ingredient("oregano"),
             new Ingredient("tomato"),
             new Ingredient("parmigiano-reggiano"),
             new Ingredient("red pepper"),
@@ -37,15 +36,15 @@ namespace Pizzaria
 
         };
 
-        public List<Ingredient> cheeses { get; } = new List<Ingredient>() {
+        public static List<Ingredient> cheeses { get; } = new List<Ingredient>() {
             new Ingredient("mozzarella"),
             new Ingredient("provolene"),
             new Ingredient("cheddar"),
-            new Ingredient("parmesan"),
+            new Ingredient("parmesan")
 
         };
 
-        public List<Ingredient> doughs { get; } = new List<Ingredient>() {
+        public static List<Ingredient> doughs { get; } = new List<Ingredient>() {
             new Ingredient("neapolitan"),
             new Ingredient("chicago"),
             new Ingredient("greek"),
@@ -53,18 +52,15 @@ namespace Pizzaria
 
         };
 
-        public List<Ingredient> spices { get; } = new List<Ingredient>() {
-            new Ingredient("i guess something goes here"),
+        public static List<Ingredient> spices { get; } = new List<Ingredient>() {
+            new Ingredient("oregano"),
 
         };
 
-
-
-        public Ingredient GetIngredient(List<Ingredient> list, int num)
+        public static Ingredient GetIngredient(List<Ingredient> list, int num)
         {
             return list[num];
         }
-
 
 
 

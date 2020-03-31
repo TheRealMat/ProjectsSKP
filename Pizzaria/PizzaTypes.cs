@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Pizzaria
 {
-    class PizzaTypes
+    static class PizzaTypes
     {
-        public List<Pizza> pizzas { get; } = new List<Pizza>();
+        public static List<Pizza> pizzas { get; } = new List<Pizza>() {
+            new Pizza("Margherita", 7, IngredientTypes.doughs[0], new List<Ingredient>() {IngredientTypes.toppings[1] }, new List<Ingredient>() { }, new List<Ingredient>() { IngredientTypes.sauces[0]}, new List<Ingredient> {IngredientTypes.spices[0]})
 
-        public void AddPizza(Pizza pizza)
-        {
-            pizzas.Add(pizza);
-        }
+        };
+
+
     }
 
 }
