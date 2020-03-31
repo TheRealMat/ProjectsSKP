@@ -57,5 +57,16 @@ namespace Pizzaria
             new Ingredient("i guess something goes here"),
 
         };
+
+
+
+        public Ingredient GetIngredient(List<Ingredient> list, int num)
+        {
+            return list[num];
+        }
+
+
+
+
     }
 }

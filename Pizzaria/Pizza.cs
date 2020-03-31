@@ -22,23 +22,52 @@ namespace Pizzaria
         public String PizzaIngredients { get { return pizzaIngredients; } set { pizzaIngredients = value; } }
 
 
-        private List<string> ingredients = new List<string>();
-        public List<string> Ingredients { get { return ingredients; } set { ingredients = value; } }
+        private Ingredient dough;
+        public Ingredient Dough { get { return dough; } set { dough = value; } }
+
+        private List<Ingredient> toppings = new List<Ingredient>();
+        public List<Ingredient> Toppings { get { return toppings; } set { toppings = value; } }
+
+        private List<Ingredient> cheeses = new List<Ingredient>();
+        public List<Ingredient> Cheeses { get { return cheeses; } set { cheeses = value; } }
+
+        private List<Ingredient> sauces = new List<Ingredient>();
+        public List<Ingredient> Sauces { get { return sauces; } set { sauces = value; } }
+
+        private List<Ingredient> spices = new List<Ingredient>();
+        public List<Ingredient> Spices { get { return spices; } set { spices = value; } }
 
 
 
 
-        public Pizza(string PizzaName, double Price, List<string> Ingredients)
+
+
+
+
+
+
+
+        public Pizza(string PizzaName, double Price, Ingredient Dough, List<Ingredient> Toppings, List<Ingredient> Cheeses, List<Ingredient> Sauces, List<Ingredient> Spices)
         {
             this.PizzaName = PizzaName;
             this.Price = Price;
-            this.Ingredients = Ingredients;
+
+            this.Dough = Dough;
+            this.Toppings = Toppings;
+            this.Cheeses = Cheeses;
+            this.Sauces = Sauces;
+            this.Spices = Spices;
+
+
 
             // textblocks can't display databinding and also a symbol
             this.PizzaPrice = Price + "€";
 
+
+
+            // need new description system
             // list has to be displayed as a string in the databinding
-            this.pizzaIngredients = combineString(Ingredients);
+            //this.pizzaIngredients = combineString(Ingredients);
 
         }
         

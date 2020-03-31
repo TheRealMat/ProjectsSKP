@@ -21,12 +21,13 @@ namespace Pizzaria
     public partial class MainWindow : Window
     {
         PizzaTypes pizzaTypes = new PizzaTypes();
+        IngredientTypes IngredientTypes = new IngredientTypes();
         public MainWindow()
         {
             // here we make-a the molto bene little bambinos
-            pizzaTypes.AddPizza(new Pizza("Margherita", 5, new List<string>(){"tomato sauce", "mozzarella", "oregano"}));
-            pizzaTypes.AddPizza(new Pizza("Romana", 7, new List<string>() { "tomato sauce", "mozzarella", "anchovies", "capers", "oregano" }));
-            pizzaTypes.AddPizza(new Pizza("Prosciutto", 6, new List<string>() { "tomato sauce", "mozzarella", "ham", "oregano" }));
+            //pizzaTypes.AddPizza(new Pizza("Margherita", 5, new List<string>(){"tomato sauce", "mozzarella", "oregano"}));
+            //pizzaTypes.AddPizza(new Pizza("Romana", 7, new List<string>() { "tomato sauce", "mozzarella", "anchovies", "capers", "oregano" }));
+            //pizzaTypes.AddPizza(new Pizza("Prosciutto", 6, new List<string>() { "tomato sauce", "mozzarella", "ham", "oregano" }));
 
 
             InitializeComponent();
