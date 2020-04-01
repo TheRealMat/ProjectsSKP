@@ -20,7 +20,7 @@ namespace Pizzaria
     /// </summary>
     public partial class MainWindow : Window
     {
-        Pizza selectedPizza;
+        Pizza selectedPizza = new Pizza("Margherita", IngredientTypes.doughs[0], new List<Ingredient>() { IngredientTypes.toppings[1] }, new List<Ingredient>() { }, new List<Ingredient>() { IngredientTypes.sauces[0] }, new List<Ingredient> { IngredientTypes.spices[0] });
         public MainWindow()
         {
             // here we make-a the molto bene little bambinos
@@ -47,7 +47,6 @@ namespace Pizzaria
 
 
 
-
         }
         private void SelectPizza_Click(object sender, RoutedEventArgs e)
         {
@@ -58,11 +57,17 @@ namespace Pizzaria
         private void SelectDoughs_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
+            selectedPizza.Dough = ((Ingredient)btnsrs.DataContext);
+
+            // why the fuck does this fire when i click the other buttons
+            testbox.Text = selectedPizza.Dough.IngredientName;
+
 
         }
         private void SelectSpices_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
+
 
         }
         private void SelectCheeses_Click(object sender, RoutedEventArgs e)

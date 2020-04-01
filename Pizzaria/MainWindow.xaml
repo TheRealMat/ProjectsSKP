@@ -13,6 +13,9 @@
 
 
     <StackPanel Margin="10">
+        <TextBox Name="testbox">
+            
+        </TextBox>
         <ComboBox Name="cmbColors">
             <ComboBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Pizza}">
