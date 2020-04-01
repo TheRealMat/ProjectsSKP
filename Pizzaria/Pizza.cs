@@ -10,11 +10,6 @@ namespace Pizzaria
         public String PizzaName { get { return pizzaName; } set { pizzaName = value; } }
 
 
-        private double price;
-        public double Price { get { return price; } set { price = value; } }
-
-        private string pizzaPrice;
-        public string PizzaPrice { get { return pizzaPrice; } set { pizzaPrice = value; } }
 
 
 
@@ -47,10 +42,9 @@ namespace Pizzaria
 
 
 
-        public Pizza(string PizzaName, double Price, Ingredient Dough, List<Ingredient> Toppings, List<Ingredient> Cheeses, List<Ingredient> Sauces, List<Ingredient> Spices)
+        public Pizza(string PizzaName, Ingredient Dough, List<Ingredient> Toppings, List<Ingredient> Cheeses, List<Ingredient> Sauces, List<Ingredient> Spices)
         {
             this.PizzaName = PizzaName;
-            this.Price = Price;
 
             this.Dough = Dough;
             this.Toppings = Toppings;
@@ -60,8 +54,6 @@ namespace Pizzaria
 
 
 
-            // textblocks can't display databinding and also a symbol
-            this.PizzaPrice = Price + "€";
 
 
 
