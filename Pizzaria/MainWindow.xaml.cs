@@ -59,7 +59,7 @@ namespace Pizzaria
             var btnsrs = (Button)sender;
             selectedPizza.Dough = ((Ingredient)btnsrs.DataContext);
 
-            // why the fuck does this fire when i click the other buttons
+
             testbox.Text = selectedPizza.Dough.IngredientName;
 
 

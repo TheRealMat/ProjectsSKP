@@ -68,7 +68,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
+                    <Button Click="SelectSauces_Click" Margin="5" Grid.Column="3">
                         <TextBlock Text="{Binding IngredientName}"/>
                     </Button>
                 </DataTemplate>
@@ -86,7 +86,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
+                    <Button Click="SelectToppings_Click" Margin="5" Grid.Column="3">
                         <TextBlock Text="{Binding IngredientName}"/>
                     </Button>
                 </DataTemplate>
@@ -104,7 +104,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
+                    <Button Click="SelectCheeses_Click" Margin="5" Grid.Column="3">
                         <TextBlock Text="{Binding IngredientName}"/>
                     </Button>
                 </DataTemplate>
@@ -122,7 +122,7 @@
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
+                    <Button Click="SelectSpices_Click" Margin="5" Grid.Column="3">
                         <TextBlock Text="{Binding IngredientName}"/>
                     </Button>
                 </DataTemplate>
