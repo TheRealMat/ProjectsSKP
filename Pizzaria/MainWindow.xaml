@@ -10,124 +10,150 @@
 
     </Window.Resources>
 
+    <Grid>
+        <StackPanel Name="MainMenu" Margin="10">
+            <ItemsControl Name="pizzas">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel>
 
+                        </StackPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-    <StackPanel Margin="10">
-        <TextBox Name="testbox">
-            
-        </TextBox>
-        <ComboBox Name="cmbColors">
-            <ComboBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Pizza}">
-                    <Grid ShowGridLines="True">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="1*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Margin="5" Grid.Column="0" Text="{Binding PizzaPrice}"/>
-                        <TextBlock Margin="5" Grid.Column="1" Text="{Binding PizzaName}"/>
-                        <TextBlock Margin="5" Grid.Column="2" TextWrapping="Wrap" Text="{Binding PizzaIngredients}"/>
-                        <Button Click="SelectPizza_Click" Margin="5" Grid.Column="3">Select</Button>
-                    </Grid>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Pizza}">
+                        <Button Click="SelectSauces_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding PizzaName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Button Click="NewPizza_Click">+</Button>
+        </StackPanel>
         
-        <ItemsControl Name="doughs">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel>
+        
+        
+        
+        <StackPanel Name="CustomMenu" Margin="10">
+            <TextBox Name="testbox">
 
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
-                        <TextBlock Text="{Binding IngredientName}"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            </TextBox>
+            <ComboBox Name="cmbColors">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Pizza}">
+                        <Grid ShowGridLines="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
 
-        <ItemsControl Name="sauces">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel>
+                            <TextBlock Margin="5" Grid.Column="0" Text="{Binding PizzaPrice}"/>
+                            <TextBlock Margin="5" Grid.Column="1" Text="{Binding PizzaName}"/>
+                            <TextBlock Margin="5" Grid.Column="2" TextWrapping="Wrap" Text="{Binding PizzaIngredients}"/>
+                            <Button Click="SelectPizza_Click" Margin="5" Grid.Column="3">Select</Button>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            <ItemsControl Name="doughs">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectSauces_Click" Margin="5" Grid.Column="3">
-                        <TextBlock Text="{Binding IngredientName}"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        <ItemsControl Name="toppings">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Ingredient}">
+                        <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding IngredientName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            <ItemsControl Name="sauces">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectToppings_Click" Margin="5" Grid.Column="3">
-                        <TextBlock Text="{Binding IngredientName}"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        <ItemsControl Name="cheeses">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Ingredient}">
+                        <Button Click="SelectSauces_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding IngredientName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            <ItemsControl Name="toppings">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectCheeses_Click" Margin="5" Grid.Column="3">
-                        <TextBlock Text="{Binding IngredientName}"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        <ItemsControl Name="spices">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Ingredient}">
+                        <Button Click="SelectToppings_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding IngredientName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            <ItemsControl Name="cheeses">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
 
-            <ItemsControl.ItemTemplate>
-                <DataTemplate DataType="{x:Type local:Ingredient}">
-                    <Button Click="SelectSpices_Click" Margin="5" Grid.Column="3">
-                        <TextBlock Text="{Binding IngredientName}"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-    </StackPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Ingredient}">
+                        <Button Click="SelectCheeses_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding IngredientName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <ItemsControl Name="spices">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel>
+
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:Ingredient}">
+                        <Button Click="SelectSpices_Click" Margin="5" Grid.Column="3">
+                            <TextBlock Text="{Binding IngredientName}"/>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
+    </Grid>
+
+
 </Window>

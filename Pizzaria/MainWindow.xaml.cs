@@ -21,6 +21,7 @@ namespace Pizzaria
     public partial class MainWindow : Window
     {
         Pizza selectedPizza = new Pizza("Margherita", IngredientTypes.doughs[0], new List<Ingredient>() { IngredientTypes.toppings[1] }, new List<Ingredient>() { }, new List<Ingredient>() { IngredientTypes.sauces[0] }, new List<Ingredient> { IngredientTypes.spices[0] });
+        CreatedPizzas createdPizzas = new CreatedPizzas();
         public MainWindow()
         {
             // here we make-a the molto bene little bambinos
@@ -42,7 +43,14 @@ namespace Pizzaria
             spices.ItemsSource = IngredientTypes.spices;
             toppings.ItemsSource = IngredientTypes.toppings;
 
+            pizzas.ItemsSource = createdPizzas.pizzas;
 
+
+
+
+
+            MainMenu.Visibility = Visibility.Visible;
+            CustomMenu.Visibility = Visibility.Hidden;
 
 
 
@@ -83,6 +91,13 @@ namespace Pizzaria
         private void SelectSauces_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
+
+        }
+
+        private void NewPizza_Click(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            createdPizzas.CreatePizza("Margherita", IngredientTypes.doughs[0], new List<Ingredient>(), new List<Ingredient>(), new List<Ingredient>(), new List<Ingredient>() );
 
         }
     }
