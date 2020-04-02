@@ -36,6 +36,7 @@
         
         
         <StackPanel Name="CustomMenu" Margin="10">
+            <Button Click="OK_Click">OK</Button>
             <TextBox Name="testbox">
 
             </TextBox>

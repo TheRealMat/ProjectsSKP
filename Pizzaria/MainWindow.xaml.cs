@@ -102,5 +102,11 @@ namespace Pizzaria
             createdPizzas.CreatePizza("Margherita", IngredientTypes.doughs[0], new List<Ingredient>(), new List<Ingredient>(), new List<Ingredient>(), new List<Ingredient>() );
 
         }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu.Visibility = Visibility.Visible;
+            CustomMenu.Visibility = Visibility.Hidden;
+        }
     }
 }
