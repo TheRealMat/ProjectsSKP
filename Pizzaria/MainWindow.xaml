@@ -23,7 +23,7 @@
 
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type local:Pizza}">
-                        <Button Click="SelectSauces_Click" Margin="5" Grid.Column="3">
+                        <Button Click="SelectPizza_Click" Margin="5" Grid.Column="3">
                             <TextBlock Text="{Binding PizzaName}"/>
                         </Button>
                     </DataTemplate>

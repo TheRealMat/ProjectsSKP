@@ -60,6 +60,8 @@ namespace Pizzaria
         {
             var btnsrs = (Button)sender;
             selectedPizza = ((Pizza)btnsrs.DataContext);
+            MainMenu.Visibility = Visibility.Hidden;
+            CustomMenu.Visibility = Visibility.Visible;
 
         }
         private void SelectDoughs_Click(object sender, RoutedEventArgs e)
