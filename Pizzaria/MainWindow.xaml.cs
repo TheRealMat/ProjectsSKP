@@ -20,7 +20,6 @@ namespace Pizzaria
     /// </summary>
     public partial class MainWindow : Window
     {
-        Pizza selectedPizza = new Pizza("Margherita", IngredientTypes.doughs[0], new List<Ingredient>() { IngredientTypes.toppings[1] }, new List<Ingredient>() { }, new List<Ingredient>() { IngredientTypes.sauces[0] }, new List<Ingredient> { IngredientTypes.spices[0] });
         CreatedPizzas createdPizzas = new CreatedPizzas();
         public MainWindow()
         {
@@ -59,7 +58,7 @@ namespace Pizzaria
         private void SelectPizza_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza = ((Pizza)btnsrs.DataContext);
+            createdPizzas.SelectedPizza = ((Pizza)btnsrs.DataContext);
             MainMenu.Visibility = Visibility.Hidden;
             CustomMenu.Visibility = Visibility.Visible;
 
@@ -67,10 +66,10 @@ namespace Pizzaria
         private void SelectDoughs_Click(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
-            selectedPizza.Dough = ((Ingredient)btnsrs.DataContext);
+            createdPizzas.SelectedPizza.Dough = ((Ingredient)btnsrs.DataContext);
 
 
-            testbox.Text = selectedPizza.Dough.IngredientName;
+            testbox.Text = createdPizzas.SelectedPizza.Dough.IngredientName;
 
 
         }

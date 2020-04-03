@@ -75,7 +75,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type local:Ingredient}">
                         <Button Click="SelectDoughs_Click" Margin="5" Grid.Column="3">
-                            <TextBlock Text="{Binding IngredientName}"/>
+                            <TextBlock Text="{Binding IngredientName, NotifyOnSourceUpdated=True}"/>
                         </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
