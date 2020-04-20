@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
     public LayerMask groundMask;
     bool isGrounded;
-
+    
     Vector3 velocity;
 
 
@@ -45,9 +45,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
     }
 }
