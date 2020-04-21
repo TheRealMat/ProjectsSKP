@@ -5,13 +5,25 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject projectile;
+    public bool isAutomatic;
+    public float coolDown;
+    private float nextFire;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time >= nextFire)
         {
-            Instantiate<GameObject>(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z));
+            nextFire = Time.time + coolDown;
+            if (Input.GetMouseButtonDown(0) || isAutomatic && Input.GetMouseButton(0))
+            {
+                fire();
+            }
         }
+    }
+
+    void fire()
+    {
+        Instantiate<GameObject>(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z));
     }
 }
