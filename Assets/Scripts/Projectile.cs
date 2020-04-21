@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     private float counter;
     Rigidbody rigidBody;
-    public ParticleSystem pSystem;
+    public List<ParticleSystem> pSystems;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
     bool isGrounded;
@@ -41,9 +41,12 @@ public class Projectile : MonoBehaviour
         isGrounded = Physics.CheckSphere(transform.position, groundDistance, groundMask);
         if (isGrounded)
         {
-            pSystem.Stop();
-            pSystem.transform.parent = null;
-            Destroy(pSystem.gameObject, 5.0f); // if particles live for at most 5 secs
+            foreach (ParticleSystem p in pSystems)
+            {
+                p.Stop();
+                p.transform.parent = null;
+                Destroy(p.gameObject, 5f); // if particles live for at most 5 secs. it doesn't seem possible to get the actual lifetime of particles
+            }
             Destroy(this.gameObject);
         }
     }
