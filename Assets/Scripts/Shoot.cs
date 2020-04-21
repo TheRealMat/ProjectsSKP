@@ -12,12 +12,13 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= nextFire)
+
+        if (Input.GetMouseButtonDown(0) || isAutomatic && Input.GetMouseButton(0))
         {
-            nextFire = Time.time + coolDown;
-            if (Input.GetMouseButtonDown(0) || isAutomatic && Input.GetMouseButton(0))
+            if (Time.time >= nextFire)
             {
                 fire();
+                nextFire = Time.time + coolDown;
             }
         }
     }
