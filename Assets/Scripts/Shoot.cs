@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     public bool isAutomatic;
     public float coolDown;
     private float nextFire;
+    public int manaCost = 0;
 
     // Update is called once per frame
     void Update()
