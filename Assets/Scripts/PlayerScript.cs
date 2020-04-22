@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+
+
     public int maxHealth;
     public int maxMana;
 
@@ -13,8 +15,8 @@ public class PlayerScript : MonoBehaviour
     public int healthRegenValue;
     public int manaRegenValue;
 
-    public int healthRegenTime;
-    public int manaRegenTime;
+    public float healthRegenTime;
+    public float manaRegenTime;
 
     public HealthBar healthBar;
     public HealthBar manaBar;
@@ -22,6 +24,12 @@ public class PlayerScript : MonoBehaviour
 
     private float nextHealth;
     private float nextMana;
+
+    private void Start()
+    {
+        healthBar.SetMaxHealth(maxHealth);
+        manaBar.SetMaxHealth(maxMana);
+    }
 
     void Update()
     {
@@ -44,8 +52,11 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        health = Mathf.Clamp(health, 0, maxHealth);
-        mana = Mathf.Clamp(health, 0, maxMana);
+        healthBar.SetHealth(health);
+        manaBar.SetHealth(mana);
+
+
+
 
 
     }

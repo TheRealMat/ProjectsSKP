@@ -14958,7 +14958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209a4f5aef84a304086c15a08c3ec876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 738282790}
 --- !u!114 &738282790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16020,8 +16020,8 @@ MonoBehaviour:
   mana: 100
   healthRegenValue: 1
   manaRegenValue: 1
-  healthRegenTime: 2
-  manaRegenTime: 2
+  healthRegenTime: 0.3
+  manaRegenTime: 0.1
   healthBar: {fileID: 2055725339}
   manaBar: {fileID: 738282789}
 --- !u!1 &768425853
@@ -35047,6 +35047,7 @@ MonoBehaviour:
   isAutomatic: 0
   coolDown: 0.1
   manaCost: 10
+  player: {fileID: 759164598}
 --- !u!1 &1690067750
 GameObject:
   m_ObjectHideFlags: 0
@@ -43935,7 +43936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209a4f5aef84a304086c15a08c3ec876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
+  slider: {fileID: 2055725338}
 --- !u!1 &2064188233
 GameObject:
   m_ObjectHideFlags: 0

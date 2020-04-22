@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour
     public float coolDown;
     private float nextFire;
     public int manaCost = 0;
+    public PlayerScript player;
 
     // Update is called once per frame
     void Update()
@@ -16,10 +17,14 @@ public class Shoot : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || isAutomatic && Input.GetMouseButton(0))
         {
-            if (Time.time >= nextFire)
+            if (player.mana >= manaCost)
             {
-                fire();
-                nextFire = Time.time + coolDown;
+                if (Time.time >= nextFire)
+                {
+                    fire();
+                    player.mana -= manaCost;
+                    nextFire = Time.time + coolDown;
+                }
             }
         }
     }
