@@ -6,10 +6,9 @@ public class PlayerScript : MonoBehaviour
 {
 
 
-    public int maxHealth;
+
     public int maxMana;
 
-    public int health;
     public int mana;
 
     public int healthRegenValue;
@@ -20,6 +19,7 @@ public class PlayerScript : MonoBehaviour
 
     public HealthBar healthBar;
     public HealthBar manaBar;
+    public Damageable damageable;
 
 
     private float nextHealth;
@@ -27,18 +27,18 @@ public class PlayerScript : MonoBehaviour
 
     private void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(damageable.maxHealth);
         manaBar.SetMaxHealth(maxMana);
     }
 
     void Update()
     {
 
-        if (health < maxHealth)
+        if (damageable.health < damageable.maxHealth)
         {
             if (Time.time >= nextHealth)
             {
-                health += healthRegenValue;
+                damageable.health += healthRegenValue;
                 nextHealth = Time.time + manaRegenTime;
             }
         }
@@ -52,7 +52,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        healthBar.SetHealth(health);
+        healthBar.SetHealth(damageable.health);
         manaBar.SetHealth(mana);
 
 
