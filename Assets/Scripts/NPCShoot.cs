@@ -8,16 +8,21 @@ public class NPCShoot : MonoBehaviour
     public float coolDown;
     private float nextFire;
     public Transform target;
+    public LayerMask groundMask;
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Time.time >= nextFire)
+        // don't do this every frame
+        if (!Physics.Linecast(transform.position, target.position, groundMask))
         {
-            fire();
-            nextFire = Time.time + coolDown;
+            if (Time.time >= nextFire)
+            {
+                fire();
+                nextFire = Time.time + coolDown;
+            }
         }
+
     }
 
     void fire()
