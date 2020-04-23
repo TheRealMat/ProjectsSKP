@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     private float counter;
     Rigidbody rigidBody;
-    Collider thisCollider;
+    SphereCollider thisCollider;
     public List<ParticleSystem> pSystems;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
@@ -41,8 +41,12 @@ public class Projectile : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-
     }
+
+
+
+
+
     private void OnTriggerEnter(Collider other)
     {
         foreach (ParticleSystem p in pSystems)

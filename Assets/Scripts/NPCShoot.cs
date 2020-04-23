@@ -28,7 +28,8 @@ public class NPCShoot : MonoBehaviour
     void fire()
     {
         transform.LookAt(target);
-        Instantiate<GameObject>(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z));
+        GameObject shotProjectile = Instantiate<GameObject>(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z));
+        Physics.IgnoreCollision(shotProjectile.GetComponent<Collider>(), transform.parent.GetComponent<Collider>());
 
     }
 }

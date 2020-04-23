@@ -31,6 +31,10 @@ public class Shoot : MonoBehaviour
 
     void fire()
     {
-        Instantiate<GameObject>(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z));
+
+        GameObject shotProjectile = Instantiate<GameObject>(projectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z));
+        // i would like to have done this in Projectile but i couldn't get it to work. also note that CharacterController derives from Collider
+        Physics.IgnoreCollision(shotProjectile.GetComponent<Collider>(), transform.parent.GetComponent<CharacterController>());
+
     }
 }
