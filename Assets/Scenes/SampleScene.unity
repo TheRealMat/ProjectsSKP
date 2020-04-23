@@ -16692,6 +16692,7 @@ GameObject:
   - component: {fileID: 759164595}
   - component: {fileID: 759164597}
   - component: {fileID: 759164598}
+  - component: {fileID: 759164599}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -16766,9 +16767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f88e4516aa3fa243b18a6a30923154f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   maxMana: 100
-  health: 100
   mana: 100
   healthRegenValue: 1
   manaRegenValue: 1
@@ -16776,6 +16775,21 @@ MonoBehaviour:
   manaRegenTime: 0.1
   healthBar: {fileID: 2055725339}
   manaBar: {fileID: 738282789}
+  damageable: {fileID: 759164599}
+--- !u!114 &759164599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759164594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c7c6ec6efb58245b05fc6288442e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 100
 --- !u!1 &768425853
 GameObject:
   m_ObjectHideFlags: 0
