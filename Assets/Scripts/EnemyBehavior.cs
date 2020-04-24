@@ -7,6 +7,10 @@ public class EnemyBehavior : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform target;
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void Update()
     {
         agent.SetDestination(target.position);

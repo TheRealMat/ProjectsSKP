@@ -11,7 +11,10 @@ public class NPCShoot : MonoBehaviour
     private float LineOfSightcoolDown = 0.2f;
     public Transform target;
     public LayerMask groundMask;
-
+    private void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     // Update is called once per frame
     void Update()
     {
