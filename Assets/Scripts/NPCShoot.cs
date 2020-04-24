@@ -7,22 +7,34 @@ public class NPCShoot : MonoBehaviour
     public GameObject projectile;
     public float coolDown;
     private float nextFire;
+    private float nextLineOfSightCheck;
+    private float LineOfSightcoolDown = 0.2f;
     public Transform target;
     public LayerMask groundMask;
 
     // Update is called once per frame
     void Update()
     {
-        // don't do this every frame
-        if (!Physics.Linecast(transform.position, target.position, groundMask))
+
+        if (CanFire() && CanSeeTarget())
         {
-            if (Time.time >= nextFire)
-            {
-                fire();
-                nextFire = Time.time + coolDown;
-            }
+            fire();
+            nextLineOfSightCheck = Time.time + LineOfSightcoolDown;
+            nextFire = Time.time + coolDown;
         }
 
+    }
+
+    // Checks if npc can see target
+    bool CanSeeTarget()
+    {
+        // Only runs the expensive check if the fast time check passes
+        return Time.time >= nextLineOfSightCheck && !Physics.Linecast(transform.position, target.position, groundMask);
+    }
+
+    bool CanFire()
+    {
+        return Time.time >= nextFire;
     }
 
     void fire()
