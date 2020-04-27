@@ -11710,9 +11710,6 @@ MonoBehaviour:
   key: {fileID: 0}
   openDistance: 5
   doorOpen: 0
-  ignoreMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!4 &574998469
 Transform:
   m_ObjectHideFlags: 0
@@ -11759,7 +11756,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7, y: 5, z: 4}
+  m_Size: {x: 7, y: 9, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &579713721
 GameObject:
@@ -25116,7 +25113,7 @@ GameObject:
   - component: {fileID: 1151919203}
   m_Layer: 8
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
