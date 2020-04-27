@@ -46,22 +46,26 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        foreach (ParticleSystem p in pSystems)
+        if (other.isTrigger == false)
         {
-            p.Stop();
-            p.transform.parent = null;
-            Destroy(p.gameObject, 5f); // if particles live for at most 5 secs. it doesn't seem possible to get the actual lifetime of particles
-        }
-        Destroy(this.gameObject);
+            foreach (ParticleSystem p in pSystems)
+            {
+                p.Stop();
+                p.transform.parent = null;
+                Destroy(p.gameObject, 5f); // if particles live for at most 5 secs. it doesn't seem possible to get the actual lifetime of particles
+            }
+            Destroy(this.gameObject);
 
-        // checks if whatever we hit can take damage
-        if (other.GetComponent<Damageable>() != null)
-        {
-            // can i get this from the if statement so i don't have to look it up twice?
-            Damageable hitDamageable = other.GetComponent<Damageable>();
-            hitDamageable.takeDamage(damage);
+            // checks if whatever we hit can take damage
+            if (other.GetComponent<Damageable>() != null)
+            {
+                // can i get this from the if statement so i don't have to look it up twice?
+                Damageable hitDamageable = other.GetComponent<Damageable>();
+                hitDamageable.takeDamage(damage);
 
+            }
         }
+
     }
 
 }
