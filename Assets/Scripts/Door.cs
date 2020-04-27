@@ -10,12 +10,11 @@ public class Door : MonoBehaviour
 
     public bool doorOpen;
     private Animator animator;
-
+    bool testHasKey = false;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        
+        animator = GetComponent<Animator>(); 
     }
 
 
@@ -24,11 +23,32 @@ public class Door : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (doorOpen == false)
+            if (needsKey == true)
             {
-                doorOpen = true;
-                DoorControl("Open");
+                if (doorOpen == false && testHasKey == true)
+                {
+                    doorOpen = true;
+                    DoorControl("Open");
+                }
+                else if (doorOpen == false && testHasKey == false)
+                {
+                    DoorControl("Locked");
+                }
             }
+
+            else
+            {
+                if (doorOpen == false)
+                {
+                    doorOpen = true;
+                    DoorControl("Open");
+                }
+            }
+
+
+
+
+
         }
     }
 

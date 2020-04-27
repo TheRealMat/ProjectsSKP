@@ -12176,7 +12176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353496b68e2ba554482a409c6b477f4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  needsKey: 0
+  needsKey: 1
   key: {fileID: 0}
   openDistance: 5
   doorOpen: 0
