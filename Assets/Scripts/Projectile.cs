@@ -35,26 +35,29 @@ public class Projectile : MonoBehaviour
 
         if (counter >= killTime)
         {
-            Destroy(this.gameObject);
+            DestroyProjectile();
         }
 
     }
 
 
-
+    private void DestroyProjectile()
+    {
+        foreach (ParticleSystem p in pSystems)
+        {
+            p.Stop();
+            p.transform.parent = null;
+            Destroy(p.gameObject, 5f); // if particles live for at most 5 secs. it doesn't seem possible to get the actual lifetime of particles
+        }
+        Destroy(this.gameObject);
+    }
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger == false)
         {
-            foreach (ParticleSystem p in pSystems)
-            {
-                p.Stop();
-                p.transform.parent = null;
-                Destroy(p.gameObject, 5f); // if particles live for at most 5 secs. it doesn't seem possible to get the actual lifetime of particles
-            }
-            Destroy(this.gameObject);
+            DestroyProjectile();
 
             // checks if whatever we hit can take damage
             if (other.GetComponent<Damageable>() != null)
