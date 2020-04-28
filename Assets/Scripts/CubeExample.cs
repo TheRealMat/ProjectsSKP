@@ -22,8 +22,11 @@ public class CubeExample : MonoBehaviour
     public float MinRange = 3.0f;
     public float MaxRange = 5.0f;
 
+    public GameObject instantiateObject;
+
     private void Update()
     {
+        Instantiate(instantiateObject, GetRandomPointBetweenTwoCircles(MinRange, MaxRange), new Quaternion(0,0,0,0));
         Debug.Log(GetRandomPointBetweenTwoCircles(MinRange, MaxRange)); ;
     }
 
@@ -43,6 +46,7 @@ public class CubeExample : MonoBehaviour
 
 
     // arcane math below
+    // it's supposed to get a point between circles but it just gets one at the minRange
 
     /// <summary>
     /// Returns a random point in the space between two concentric circles.
@@ -66,7 +70,8 @@ public class CubeExample : MonoBehaviour
     /// <param name="max">Max.</param>
     Vector3 GetRandomVector3Between(Vector3 min, Vector3 max)
     {
-        return min + Random.Range(0, 1) * (max - min);
+        Vector3 point = min + Random.Range(0, 1) * (max - min);
+        return new Vector3(point.x, transform.position.y, point.y);
     }
 
 
