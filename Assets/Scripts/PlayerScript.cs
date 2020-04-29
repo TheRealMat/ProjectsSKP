@@ -52,6 +52,12 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        if (damageable.health <= 0)
+        {
+            // disable relevant scripts?
+            FindObjectOfType<GameManager>().GameOver();
+        }
+
         healthBar.SetHealth(damageable.health);
         manaBar.SetHealth(mana);
 
