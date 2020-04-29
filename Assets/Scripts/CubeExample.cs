@@ -23,56 +23,18 @@ public class CubeExample : MonoBehaviour
     public float MaxRange = 5.0f;
 
     public GameObject instantiateObject;
+    public GameObject SpawnPoint;
 
     private void Update()
     {
-        Instantiate(instantiateObject, GetRandomPointBetweenTwoCircles(MinRange, MaxRange), new Quaternion(0,0,0,0));
-        Debug.Log(GetRandomPointBetweenTwoCircles(MinRange, MaxRange)); ;
+        // whym the fuck does this not set a rotation between 0 and 360. as long as it works i suppose
+        transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+        SpawnPoint.transform.localPosition = new Vector3(transform.position.x + Random.Range(MinRange, MaxRange), transform.position.y, transform.position.z);
+        Instantiate(instantiateObject, SpawnPoint.transform.position, new Quaternion(0, 0, 0, 0));
+
+
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // arcane math below
-    // it's supposed to get a point between circles but it just gets one at the minRange
-
-    /// <summary>
-    /// Returns a random point in the space between two concentric circles.
-    /// </summary>
-    /// <param name="minRadius"></param>
-    /// <param name="maxRadius"></param>
-    /// <returns></returns>
-    Vector3 GetRandomPointBetweenTwoCircles(float minRadius, float maxRadius)
-    {
-        //Get a point on a unit circle (radius = 1) by normalizing a random point inside unit circle.
-        Vector3 randomUnitPoint = Random.insideUnitCircle.normalized;
-        //Now get a random point between the corresponding points on both the circles
-        return GetRandomVector3Between(randomUnitPoint * minRadius, randomUnitPoint * maxRadius);
-    }
-
-    /// <summary>
-    /// Returns a random vector3 between min and max. (Inclusive)
-    /// </summary>
-    /// <returns>The <see cref="UnityEngine.Vector3"/>.</returns>
-    /// <param name="min">Minimum.</param>
-    /// <param name="max">Max.</param>
-    Vector3 GetRandomVector3Between(Vector3 min, Vector3 max)
-    {
-        Vector3 point = min + Random.Range(0, 1) * (max - min);
-        return new Vector3(point.x, transform.position.y, point.y);
-    }
 
 
 }
