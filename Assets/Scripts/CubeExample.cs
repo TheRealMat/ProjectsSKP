@@ -23,16 +23,29 @@ public class CubeExample : MonoBehaviour
     public float MaxRange = 5.0f;
 
     public GameObject instantiateObject;
+    // i could just use math instead of another gameobject
     public GameObject SpawnPoint;
 
-    private void Update()
+    public float spawnTime;
+    private float counter;
+    private void FixedUpdate()
+    {
+        counter++;
+
+        if (counter >= spawnTime)
+        {
+            counter = 0;
+            SpawnEnemy(instantiateObject);
+        }
+
+    }
+
+    private void SpawnEnemy(GameObject enemy)
     {
         // whym the fuck does this not set a rotation between 0 and 360. as long as it works i suppose
         transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         SpawnPoint.transform.localPosition = new Vector3(transform.position.x + Random.Range(MinRange, MaxRange), transform.position.y, transform.position.z);
-        Instantiate(instantiateObject, SpawnPoint.transform.position, new Quaternion(0, 0, 0, 0));
-
-
+        Instantiate(enemy, SpawnPoint.transform.position, new Quaternion(0, 0, 0, 0));
     }
 
 
