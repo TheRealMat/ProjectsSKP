@@ -50,39 +50,106 @@ public class GridManager : MonoBehaviour
             roadMap.SetTile(new Vector3Int(roadPath[i].X, roadPath[i].Y, 0), roadTile);
         }
     }
+    private void UnDrawRoad()
+    {
+        for (int i = 0; i < roadPath.Count; i++)
+        {
+            roadMap.SetTile(new Vector3Int(roadPath[i].X, roadPath[i].Y, 0), null);
+        }
+    }
+
+
     // Update is called once per frame
     public Vector2Int start;
+
+    bool isSelecting;
+
+
     void Update()
     {
-
-        if (Input.GetMouseButton(1))
+        // should only work if you've selected a valid unit
+        if (Input.GetMouseButtonDown(0))
         {
             Vector3 world = camera.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int gridPos = tilemap.WorldToCell(world);
             start = new Vector2Int(gridPos.x, gridPos.y);
+            isSelecting = true;
         }
-        if (Input.GetMouseButton(2))
-        {
-            Vector3 world = camera.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int gridPos = tilemap.WorldToCell(world);
-            roadMap.SetTile(new Vector3Int(gridPos.x, gridPos.y, 0), null);
-        }
-        if (Input.GetMouseButton(0))
+        if (isSelecting == true)
         {
             CreateGrid();
+
 
             Vector3 world = camera.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int gridPos = tilemap.WorldToCell(world);
 
             if (roadPath != null && roadPath.Count > 0)
+            {
+                // instead of drawing and undrawing every frame you can just draw if something changed
+                UnDrawRoad();
                 roadPath.Clear();
+            }
+
+
 
             roadPath = astar.CreatePath(spots, start, new Vector2Int(gridPos.x, gridPos.y), 1000);
             if (roadPath == null)
                 return;
 
             DrawRoad();
-            start = new Vector2Int(roadPath[0].X, roadPath[0].Y);
         }
+
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            UnDrawRoad();
+            isSelecting = false;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //if (Input.GetMouseButton(1))
+        //{
+        //    Vector3 world = camera.ScreenToWorldPoint(Input.mousePosition);
+        //    Vector3Int gridPos = tilemap.WorldToCell(world);
+        //    start = new Vector2Int(gridPos.x, gridPos.y);
+        //}
+        //if (Input.GetMouseButton(2))
+        //{
+        //    Vector3 world = camera.ScreenToWorldPoint(Input.mousePosition);
+        //    Vector3Int gridPos = tilemap.WorldToCell(world);
+        //    roadMap.SetTile(new Vector3Int(gridPos.x, gridPos.y, 0), null);
+        //}
+        //if (Input.GetMouseButton(0))
+        //{
+
+        //    CreateGrid();
+
+        //    Vector3 world = camera.ScreenToWorldPoint(Input.mousePosition);
+        //    Vector3Int gridPos = tilemap.WorldToCell(world);
+
+        //    if (roadPath != null && roadPath.Count > 0)
+        //        roadPath.Clear();
+
+        //    roadPath = astar.CreatePath(spots, start, new Vector2Int(gridPos.x, gridPos.y), 1000);
+        //    if (roadPath == null)
+        //        return;
+
+        //    DrawRoad();
+        //    start = new Vector2Int(roadPath[0].X, roadPath[0].Y);
+        //}
     }
 }
