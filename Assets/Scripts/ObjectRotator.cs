@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class ObjectRotator : MonoBehaviour
 {
-    //List<SpriteDirections> components = new List<SpriteDirections>()
-    //{
+    public Component[] components;
 
-    //};
+    private void Awake()
+    {
+        components = GetComponentsInChildren<SpriteDirections>();
+    }
 
-    //private void Start()
-    //{
-    //    components = GetComponentsInChildren<SpriteDirections>();
-    //}
+
+    void Rotate(int index)
+    {
+        foreach (SpriteDirections spriteDirections in components)
+        {
+            spriteDirections.setSprite(index);
+        }
+    }
 }

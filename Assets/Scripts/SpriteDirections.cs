@@ -11,14 +11,17 @@ public class SpriteDirections : MonoBehaviour
 
     };
 
-    private void Start()
+    private void Awake()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
 
     public void setSprite(int index)
     {
         spriteRenderer.sprite = spriteDir[index];
+        Debug.Log("sprite set");
+
     }
 
 
