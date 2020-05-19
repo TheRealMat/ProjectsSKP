@@ -6,7 +6,11 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+
+
     public TextMeshPro timerText;
+
+
     private float secondsCount;
     private int minuteCount;
     private int hourCount;
