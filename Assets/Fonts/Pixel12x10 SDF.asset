@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Pixel12x10 SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 1934694435
   material: {fileID: 6196319341744059499}
-  materialHashCode: 0
+  materialHashCode: 327533384
   m_Version: 1.1.0
   m_SourceFontFileGUID: 57ad25c0a1a9e0d47bc071f45ee4f3c2
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -2430,9 +2430,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.5
+    - _ScaleRatioB: 0.40625
+    - _ScaleRatioC: 0.40625
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

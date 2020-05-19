@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     bool gameEnded;
+    public GameObject gameOverSceen;
+
 
     public void GameOver()
     {
-        Debug.Log("game over");
+        gameOverSceen.SetActive(true);
     }
 }
