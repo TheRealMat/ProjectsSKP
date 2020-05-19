@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenuScreen;
 
     public bool gameOver;
+    public bool gameStarted;
 
     public void StartGame()
     {
+        gameStarted = true;
         mainMenuScreen.SetActive(false);
     }
 

@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
         return moveDir;
     }
 
-    void Update()
+    void Move()
     {
         Vector3 moveDir = playerControls();
 
@@ -62,23 +62,26 @@ public class Movement : MonoBehaviour
         }
 
 
-
-
-
-
         // horizontal movement
         transform.position += moveDir * -horizontalSpeed * speed * Time.deltaTime;
 
         // sideways drift
         transform.position += transform.right * driftSpeed * speed * Time.deltaTime;
+    }
 
 
-
-
-        // checks if out of bounds
-        if (transform.position.x > 5 || transform.position.x < -5)
+    void Update()
+    {
+        if (gameManager.gameStarted == true)
         {
-            gameManager.EndGame();
+            Move();
+
+
+            // checks if out of bounds
+            if (transform.position.x > 5 || transform.position.x < -5)
+            {
+                gameManager.EndGame();
+            }
         }
 
         if (gameManager.gameOver == true)
@@ -86,8 +89,5 @@ public class Movement : MonoBehaviour
             desiredSpeed = 0;
             horizontalSpeed = 0;
         }
-
-
-
     }
 }
