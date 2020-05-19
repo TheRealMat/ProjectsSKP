@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        FindObjectOfType<GameManager>().GameStart();
+        FindObjectOfType<GameManager>().StartGame();
     }
 
     public void ExitGame()

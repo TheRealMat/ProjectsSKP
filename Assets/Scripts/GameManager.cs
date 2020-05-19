@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverSceen;
     public GameObject mainMenuScreen;
 
+    public bool gameOver;
 
-    public void GameStart()
+    public void StartGame()
     {
         mainMenuScreen.SetActive(false);
     }
 
-    public void GameOver()
+    public void EndGame()
     {
+        gameOver = true;
         gameOverSceen.SetActive(true);
     }
 }

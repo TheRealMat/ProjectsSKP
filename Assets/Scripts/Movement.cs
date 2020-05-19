@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 
     public List<Renderer> scrollingRenderers = new List<Renderer>();
 
+    private GameManager gameManager;
 
     public float speed = 0.0f; //current speed
     private float desiredSpeed;
@@ -28,13 +29,25 @@ public class Movement : MonoBehaviour
             scrollingRenderers.Add(gameObject.GetComponent<Renderer>());
         }
 
+        gameManager = FindObjectOfType<GameManager>();
+
 
         // start moving
         desiredSpeed = 5;
     }
 
+    public Vector3 playerControls()
+    {
+        Vector3 moveDir = Vector3.zero;
+        moveDir.x = Input.GetAxis("Horizontal");
+        return moveDir;
+    }
+
     void Update()
     {
+        Vector3 moveDir = playerControls();
+
+
         // texture scrolling
 
         speed += (desiredSpeed - speed) * acceleration;
@@ -54,10 +67,6 @@ public class Movement : MonoBehaviour
 
 
         // horizontal movement
-
-        Vector3 moveDir = Vector3.zero;
-        moveDir.x = Input.GetAxis("Horizontal");
-
         transform.position += moveDir * -horizontalSpeed * speed * Time.deltaTime;
 
         // sideways drift
@@ -69,8 +78,16 @@ public class Movement : MonoBehaviour
         // checks if out of bounds
         if (transform.position.x > 5 || transform.position.x < -5)
         {
-            desiredSpeed = 0;
-            FindObjectOfType<GameManager>().GameOver();
+            gameManager.EndGame();
         }
+
+        if (gameManager.gameOver == true)
+        {
+            desiredSpeed = 0;
+            horizontalSpeed = 0;
+        }
+
+
+
     }
 }
