@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1924390286}
+  minutesToWin: 480
 --- !u!114 &1924390286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,6 +2313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverSceen: {fileID: 1146241537}
   mainMenuScreen: {fileID: 1524057788}
+  gameOver: 0
+  gameStarted: 0
+  gameWon: 0
 --- !u!4 &2022707803
 Transform:
   m_ObjectHideFlags: 0

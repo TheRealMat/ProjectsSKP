@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public bool gameOver;
     public bool gameStarted;
+    public bool gameWon;
 
     public void StartGame()
     {
@@ -21,5 +22,10 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         gameOverSceen.SetActive(true);
+    }
+
+    public void WinGame()
+    {
+        gameWon = true;
     }
 }
