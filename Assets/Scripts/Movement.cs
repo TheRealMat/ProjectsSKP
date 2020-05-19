@@ -88,6 +88,7 @@ public class Movement : MonoBehaviour
         {
             desiredSpeed = 0;
             horizontalSpeed = 0;
+            driftSpeed = 0;
         }
     }
 }
