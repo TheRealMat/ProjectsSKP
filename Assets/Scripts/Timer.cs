@@ -10,9 +10,21 @@ public class Timer : MonoBehaviour
     private float secondsCount;
     private int minuteCount;
     private int hourCount;
+
+
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     void Update()
     {
-        UpdateTimerUI();
+        if (gameManager.gameStarted == true && gameManager.gameOver == false)
+        {
+            UpdateTimerUI();
+        }
     }
 
     public void UpdateTimerUI()
