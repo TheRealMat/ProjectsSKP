@@ -76,15 +76,19 @@ public class Movement : MonoBehaviour
         {
             Move();
 
-
-            // checks if out of bounds
-            if (transform.position.x > 5 || transform.position.x < -5)
+            // to make sure you can't lose after winning
+            if (gameManager.gameWon == false)
             {
-                gameManager.EndGame();
+                // checks if out of bounds
+                if (transform.position.x > 5 || transform.position.x < -5)
+                {
+                    gameManager.EndGame();
+                }
             }
+
         }
 
-        if (gameManager.gameOver == true)
+        if (gameManager.gameOver == true || gameManager.gameWon == true)
         {
             desiredSpeed = 0;
             horizontalSpeed = 0;

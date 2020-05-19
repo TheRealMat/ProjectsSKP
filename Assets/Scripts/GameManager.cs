@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     bool gameEnded;
     public GameObject gameOverSceen;
     public GameObject mainMenuScreen;
+    public GameObject winScreen;
 
     public bool gameOver;
     public bool gameStarted;
@@ -27,5 +28,6 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         gameWon = true;
+        winScreen.SetActive(true);
     }
 }
