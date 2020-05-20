@@ -21,9 +21,13 @@ public class Timer : MonoBehaviour
 
     private GameManager gameManager;
 
+    private BugSplatter bugSplatter;
+
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+
+        bugSplatter =  GameObject.FindObjectOfType<BugSplatter>();
     }
 
     void Update()
@@ -36,6 +40,12 @@ public class Timer : MonoBehaviour
             {
                 gameManager.WinGame();
             }
+        }
+
+        // probably shouldn't be here.
+        if (minutesElapsed >= bugSplatter.minutesToSplatter && bugSplatter.bugSplatted == false)
+        {
+            bugSplatter.Splat();
         }
     }
 
