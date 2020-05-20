@@ -2778,6 +2778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2022707803}
   - component: {fileID: 2022707802}
+  - component: {fileID: 2022707804}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2817,3 +2818,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2022707804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022707801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a4b019616ba8e4abe082e6cf3e6517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minRange: 10
+  maxRange: 100
+  spawnDistance: -500
+  spawnChance: 0.37
+  spawnTimeSeconds: 3
+  cactus: {fileID: 5891189848021440319, guid: caba6b59758b72842b5cd849bd4270b7, type: 3}
