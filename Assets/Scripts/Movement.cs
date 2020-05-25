@@ -72,6 +72,14 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        // my kingdom for a trigger
+        if (gameManager.gameStarted == false && Input.anyKey)
+        {
+            gameManager.StartGame();
+        }
+
+
+
         if (gameManager.gameStarted == true)
         {
             Move();

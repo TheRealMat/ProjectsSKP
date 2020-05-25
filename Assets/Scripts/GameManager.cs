@@ -16,18 +16,15 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         gameStarted = true;
-        mainMenuScreen.SetActive(false);
     }
 
     public void EndGame()
     {
         gameOver = true;
-        gameOverSceen.SetActive(true);
     }
 
     public void WinGame()
     {
         gameWon = true;
-        winScreen.SetActive(true);
     }
 }
