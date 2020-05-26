@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float scrollSpeed;
 
     public List<Renderer> scrollingRenderers = new List<Renderer>();
 
     private GameManager gameManager;
 
     public float speed = 0.0f; //current speed
-    private float desiredSpeed;
+    public float maxSpeed;
     private float pos; //total texture offset
     public float acceleration = 0.1f;
+    public float deacceleration = 0.1f;
 
 
     public float horizontalSpeed = 1; // speed in meters per second
@@ -30,10 +30,6 @@ public class Movement : MonoBehaviour
         }
 
         gameManager = FindObjectOfType<GameManager>();
-
-
-        // start moving
-        desiredSpeed = scrollSpeed;
     }
 
     public Vector3 playerControls()
@@ -47,16 +43,8 @@ public class Movement : MonoBehaviour
     {
 
 
-        float x = speed / desiredSpeed;
-
-        float t = InverseEaseInQuart(x);
-
-        t += Time.deltaTime * acceleration;
-
-        x = EaseInQuart(t);
-
-        speed = x * desiredSpeed;
-
+        speed += acceleration * Time.deltaTime;
+        speed = Mathf.Clamp(speed, 0f, maxSpeed);
 
         Vector3 moveDir = playerControls();
 
@@ -75,16 +63,6 @@ public class Movement : MonoBehaviour
 
         // sideways drift
         transform.position += transform.right * driftSpeed * speed * Time.deltaTime;
-    }
-
-    public float EaseInQuart(float t)
-    {
-        return Mathf.Pow(Mathf.Clamp01(t), 4f);
-    }
-
-    public float InverseEaseInQuart(float x)
-    {
-        return Mathf.Pow(Mathf.Clamp01(x), 0.25f);
     }
 
     void Update()
@@ -115,7 +93,7 @@ public class Movement : MonoBehaviour
 
         if (gameManager.gameOver == true || gameManager.gameWon == true)
         {
-            desiredSpeed = 0;
+            acceleration = deacceleration;
             horizontalSpeed = 0;
             driftSpeed = 0;
         }
