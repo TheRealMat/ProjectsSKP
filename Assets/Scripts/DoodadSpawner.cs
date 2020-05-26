@@ -22,7 +22,7 @@ public class DoodadSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.gameStarted == true)
+        if (gameManager.gameStarted == true && gameManager.gameWon == false)
         {
             elapsedSeconds += Time.deltaTime;
             if (elapsedSeconds >= spawnTimeSeconds)
