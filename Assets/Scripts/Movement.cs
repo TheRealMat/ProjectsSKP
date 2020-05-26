@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     public float speed = 0.0f; //current speed
     private float desiredSpeed;
     private float pos; //total texture offset
-    private float acceleration = 0.001f;
+    public float acceleration = 0.1f;
 
 
     public float horizontalSpeed = 1; // speed in meters per second
@@ -45,12 +45,20 @@ public class Movement : MonoBehaviour
 
     void Move()
     {
+
+
+        float x = speed / desiredSpeed;
+
+        float t = InverseEaseInQuart(x);
+
+        t += Time.deltaTime * acceleration;
+
+        x = EaseInQuart(t);
+
+        speed = x * desiredSpeed;
+
+
         Vector3 moveDir = playerControls();
-
-
-        // texture scrolling
-
-        speed += (desiredSpeed - speed) * acceleration;
 
         //add current speed to the position
         pos += speed * Time.deltaTime;
@@ -69,6 +77,15 @@ public class Movement : MonoBehaviour
         transform.position += transform.right * driftSpeed * speed * Time.deltaTime;
     }
 
+    public float EaseInQuart(float t)
+    {
+        return Mathf.Pow(Mathf.Clamp01(t), 4f);
+    }
+
+    public float InverseEaseInQuart(float x)
+    {
+        return Mathf.Pow(Mathf.Clamp01(x), 0.25f);
+    }
 
     void Update()
     {
