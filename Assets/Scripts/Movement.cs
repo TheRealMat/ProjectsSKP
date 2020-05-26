@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
 
         // start moving
-        desiredSpeed = 5;
+        desiredSpeed = scrollSpeed;
     }
 
     public Vector3 playerControls()
