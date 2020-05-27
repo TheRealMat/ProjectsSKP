@@ -21,13 +21,12 @@ public class Timer : MonoBehaviour
 
     private GameManager gameManager;
 
-    private BugSplatter bugSplatter;
+
 
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
 
-        bugSplatter =  GameObject.FindObjectOfType<BugSplatter>();
     }
 
     void Update()
@@ -42,11 +41,6 @@ public class Timer : MonoBehaviour
             }
         }
 
-        // probably shouldn't be here.
-        if (minutesElapsed >= bugSplatter.minutesToSplatter && bugSplatter.bugSplatted == false)
-        {
-            bugSplatter.Splat();
-        }
     }
 
     public void UpdateTimerUI()
@@ -56,15 +50,23 @@ public class Timer : MonoBehaviour
         timerText.text = hourCount + "h:" + minuteCount.ToString("00") + "m:" + ((int)secondsCount).ToString("00") + "s";
         if (secondsCount >= 60)
         {
-            minuteCount++;
-            minutesElapsed++;
-            secondsCount = 0;
+            UpdateMinute();
         }
         else if (minuteCount >= 60)
         {
-            hourCount++;
-            minuteCount = 0;
+            UpdateHour();
         }
     }
-
+    void UpdateMinute()
+    {
+        minuteCount++;
+        minutesElapsed++;
+        secondsCount = 0;
+        GameObject.FindObjectOfType<GameEvents>().MinuteChanged(minutesElapsed);
+    }
+    void UpdateHour()
+    {
+        hourCount++;
+        minuteCount = 0;
+    }
 }

@@ -11,14 +11,21 @@ public class BugSplatter : MonoBehaviour
     private void Start()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.FindObjectOfType<GameEvents>().onMinuteChanged += Splat;
+
     }
 
-    public void Splat()
+    public void Splat(int minute)
     {
-        bugSplatted = true;
+        if (minute >= minutesToSplatter)
+        {
+            bugSplatted = true;
 
-        // play a sound
+            // play a sound
 
-        GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<SpriteRenderer>().enabled = true;
+
+            GameObject.FindObjectOfType<GameEvents>().onMinuteChanged -= Splat;
+        }
     }
 }
