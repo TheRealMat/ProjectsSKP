@@ -15,8 +15,8 @@ public class Movement : MonoBehaviour
     public float acceleration = 0.1f;
     public float deacceleration = 0.1f;
 
-
-    public float horizontalSpeed = 1; // speed in meters per second
+    public float horizontalSpeed = 0;
+    public float horizontalSpeedMax = 1; // speed in meters per second
     public float driftSpeed = 1; // speed in meters per second
 
 
@@ -51,18 +51,20 @@ public class Movement : MonoBehaviour
         //add current speed to the position
         pos += speed * Time.deltaTime;
 
+        // scroll texture
         Vector2 offset = new Vector2(0, pos);
         foreach (Renderer renderer in scrollingRenderers)
         {
             renderer.material.SetTextureOffset("_MainTex", offset);
         }
 
-
+        horizontalSpeed += acceleration * Time.deltaTime;
+        horizontalSpeed = Mathf.Clamp(horizontalSpeed, 0f, horizontalSpeedMax);
         // horizontal movement
         transform.position += moveDir * -horizontalSpeed * speed * Time.deltaTime;
-
         // sideways drift
         transform.position += transform.right * driftSpeed * speed * Time.deltaTime;
+
     }
 
     void Update()
@@ -94,7 +96,6 @@ public class Movement : MonoBehaviour
         if (gameManager.gameOver == true || gameManager.gameWon == true)
         {
             acceleration = deacceleration;
-            horizontalSpeed = 0;
             driftSpeed = 0;
         }
     }

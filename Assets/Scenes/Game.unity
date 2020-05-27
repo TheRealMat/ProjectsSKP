@@ -727,8 +727,9 @@ MonoBehaviour:
   maxSpeed: 3
   acceleration: 0.3
   deacceleration: -1
-  horizontalSpeed: 3
-  driftSpeed: 0.5
+  horizontalSpeed: 0
+  horizontalSpeedMax: 2
+  driftSpeed: 0.3
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
