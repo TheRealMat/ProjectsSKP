@@ -13,4 +13,22 @@ public class GameEvents : MonoBehaviour
             onMinuteChanged(minute);
         }
     }
+
+    public event Action onGameOver;
+    public void GameOver()
+    {
+        if (onGameOver != null)
+        {
+            onGameOver();
+        }
+    }
+
+    public event Action onGameWon;
+    public void GameWon()
+    {
+        if (onGameWon != null)
+        {
+            onGameWon();
+        }
+    }
 }

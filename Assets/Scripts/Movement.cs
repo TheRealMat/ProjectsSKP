@@ -30,6 +30,9 @@ public class Movement : MonoBehaviour
         }
 
         gameManager = FindObjectOfType<GameManager>();
+        GameObject.FindObjectOfType<GameEvents>().onGameOver += StopMovement;
+        GameObject.FindObjectOfType<GameEvents>().onGameWon += StopMovement;
+
     }
 
     public Vector3 playerControls()
@@ -90,16 +93,15 @@ public class Movement : MonoBehaviour
                 // checks if out of bounds
                 if (transform.position.x > 5 || transform.position.x < -5)
                 {
-                    gameManager.EndGame();
+                    GameObject.FindObjectOfType<GameEvents>().GameOver();
                 }
             }
 
         }
-
-        if (gameManager.gameOver == true || gameManager.gameWon == true)
-        {
-            acceleration = deacceleration;
-            driftSpeed = 0;
-        }
+    }
+    void StopMovement()
+    {
+        acceleration = deacceleration;
+        driftSpeed = 0;
     }
 }

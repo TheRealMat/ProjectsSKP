@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         if (minute >= minutesToWin)
         {
             WinGame();
+            GameObject.FindObjectOfType<GameEvents>().GameWon();
         }
     }
 }
