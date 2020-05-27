@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int minutesToWin;
+
     bool gameEnded;
     public GameObject gameOverSceen;
     public GameObject mainMenuScreen;
@@ -12,6 +14,12 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
     public bool gameStarted;
     public bool gameWon;
+
+    private void Start()
+    {
+        GameObject.FindObjectOfType<GameEvents>().onMinuteChanged += CheckIfWon;
+    }
+
 
     public void StartGame()
     {
@@ -26,5 +34,13 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         gameWon = true;
+    }
+
+    private void CheckIfWon(int minute)
+    {
+        if (minute >= minutesToWin)
+        {
+            WinGame();
+        }
     }
 }

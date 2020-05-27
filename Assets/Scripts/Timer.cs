@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     private int minuteCount;
     private int hourCount;
 
-    public int minutesToWin;
+
     private int minutesElapsed;
 
 
@@ -34,11 +34,6 @@ public class Timer : MonoBehaviour
         if (gameManager.gameStarted == true && gameManager.gameOver == false)
         {
             UpdateTimerUI();
-
-            if (minutesElapsed >= minutesToWin && gameManager.gameWon == false)
-            {
-                gameManager.WinGame();
-            }
         }
 
     }
