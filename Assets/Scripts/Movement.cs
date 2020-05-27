@@ -41,10 +41,8 @@ public class Movement : MonoBehaviour
 
     void Move()
     {
-
-
-        speed += acceleration * Time.deltaTime;
-        speed = Mathf.Clamp(speed, 0f, maxSpeed);
+        speed = MovementSpeed(speed, acceleration, maxSpeed);
+        horizontalSpeed = MovementSpeed(horizontalSpeed, acceleration, horizontalSpeedMax);
 
         Vector3 moveDir = playerControls();
 
@@ -58,13 +56,18 @@ public class Movement : MonoBehaviour
             renderer.material.SetTextureOffset("_MainTex", offset);
         }
 
-        horizontalSpeed += acceleration * Time.deltaTime;
-        horizontalSpeed = Mathf.Clamp(horizontalSpeed, 0f, horizontalSpeedMax);
+
         // horizontal movement
         transform.position += moveDir * -horizontalSpeed * speed * Time.deltaTime;
         // sideways drift
         transform.position += transform.right * driftSpeed * speed * Time.deltaTime;
 
+    }
+
+    float MovementSpeed(float moveSpeed, float moveAcceleration, float moveMaxSpeed)
+    {
+        moveSpeed += moveAcceleration * Time.deltaTime;
+        return Mathf.Clamp(moveSpeed, 0f, moveMaxSpeed);
     }
 
     void Update()
