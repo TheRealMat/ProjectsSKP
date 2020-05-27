@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GameObject.FindObjectOfType<GameEvents>().onMinuteChanged += CheckIfWon;
+        GameObject.FindObjectOfType<GameEvents>().onGameWon += WinGame;
+        GameObject.FindObjectOfType<GameEvents>().onGameOver += EndGame;
+
     }
 
 

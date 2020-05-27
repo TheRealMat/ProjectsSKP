@@ -86,17 +86,6 @@ public class Movement : MonoBehaviour
         if (gameManager.gameStarted == true)
         {
             Move();
-
-            // to make sure you can't lose after winning
-            if (gameManager.gameWon == false)
-            {
-                // checks if out of bounds
-                if (transform.position.x > 5 || transform.position.x < -5)
-                {
-                    GameObject.FindObjectOfType<GameEvents>().GameOver();
-                }
-            }
-
         }
     }
     void StopMovement()
