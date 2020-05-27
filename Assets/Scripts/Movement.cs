@@ -91,6 +91,5 @@ public class Movement : MonoBehaviour
     void StopMovement()
     {
         acceleration = deacceleration;
-        driftSpeed = 0;
     }
 }
