@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ScrollingTexture
+  - Doodad
   layers:
   - Default
   - TransparentFX
