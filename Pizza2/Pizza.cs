@@ -8,13 +8,15 @@ namespace Pizza2
     class Pizza
     {
         public string Name { get; set; }
-        // type of bread
-        // type of cheese
+        int Bread { get; set; }
+        int Cheese { get; set; }
+
         // list of toppings
         // pizza size
         // total price
 
         ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
+
 
         public Pizza(string name)
         {

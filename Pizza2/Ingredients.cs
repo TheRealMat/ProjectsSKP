@@ -7,7 +7,7 @@ namespace Pizza2
     public static class Ingredients
     {
         // list of available ingredients
-        static List<Ingredient> ingredients = new List<Ingredient>()
+        static List<Ingredient> IngredientsList { get; set; } = new List<Ingredient>()
         {
             new Ingredient ("asbestos", 1),
             new Ingredient ("space cancer", 420.69),
@@ -16,7 +16,7 @@ namespace Pizza2
             new Ingredient ("rat meat", 9.99)
         };
 
-        static Dictionary<string, double> breadTypes = new Dictionary<string, double>()
+        public static Dictionary<string, double> BreadTypesList { get; set; } = new Dictionary<string, double>()
         {
             {"flat bread", 100},
             {"pancake", 200},
@@ -24,7 +24,7 @@ namespace Pizza2
             {"cardboard", 3}
         };
 
-        static Dictionary<string, double> cheeseTypes = new Dictionary<string, double>()
+        public static Dictionary<string, double> CheeseTypesList { get; set; } = new Dictionary<string, double>()
         {
             {"stinky", 5},
             {"the moon", 50000000000000000.99},

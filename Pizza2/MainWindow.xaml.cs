@@ -26,6 +26,7 @@ namespace Pizza2
             InitializeComponent();
             EditPizzaMenu.Visibility = Visibility.Collapsed;
             pizlist.DataContext = cart.PizzasInCart;
+            BreadDropdown.DataContext = Ingredients.BreadTypesList;
 
         }
 
