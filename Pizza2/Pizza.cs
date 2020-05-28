@@ -18,6 +18,5 @@ namespace Pizza2
             this.Name = name;
         }
 
-     
     }
 }

@@ -28,5 +28,11 @@ namespace Pizza2
             pizlist.DataContext = cart.PizzasInCart;
 
         }
+
+        private void RemovePizza(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            cart.PizzasInCart.Remove((Pizza)btnsrs.DataContext);
+        }
     }
 }

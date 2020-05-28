@@ -6,33 +6,37 @@
         xmlns:local="clr-namespace:Pizza2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Text="here are your pizzas you fucking fat slob"  Margin="1" TextAlignment="Center"/>
-        <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
-            <StackPanel>
-                <ItemsControl x:Name="pizlist" ItemsSource="{Binding}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="{x:Type local:Pizza}">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="25"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding Name}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <Button Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
-            </StackPanel>
-        </ScrollViewer>
+    <Grid Name="MainGrid">
+        <Grid x:Name="PizzaSelect">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="here are your pizzas you fucking fat slob"  Margin="1" TextAlignment="Center"/>
+            <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
+                <StackPanel>
+                    <ItemsControl x:Name="pizlist" ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type local:Pizza}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding Name}"/>
+                                    <Button Click="RemovePizza" Content="🗙" Height="10" Width="10"></Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Button Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
     </Grid>
 </Window>
