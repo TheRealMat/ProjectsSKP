@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace Pizza2
 {
@@ -12,6 +13,8 @@ namespace Pizza2
         // list of toppings
         // pizza size
         // total price
+
+        ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
 
         public Pizza(string name)
         {

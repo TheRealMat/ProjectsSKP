@@ -52,10 +52,21 @@
             <TextBlock Grid.Row="0" Text="ooga booga editing pizza"  Margin="1" TextAlignment="Center"/>
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
-                    <ItemsControl x:Name="thepiz" ItemsSource="{Binding}" >
+                    <TextBlock Text="bread"/>
+                    <ItemsControl x:Name="thepiz" ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type local:Pizza}">
+                                
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
 
+                        <TextBlock Text="cheez"/>
+
+
+                        <TextBlock Text="that there stuff that goes on top"/>
+                        
+                        
                     </ItemsControl>
-                    
                     <Button Click="AcceptPizza" Content="✓" Height="25" Width="50"/>
                 </StackPanel>
             </ScrollViewer>
