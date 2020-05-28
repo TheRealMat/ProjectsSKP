@@ -11,7 +11,8 @@ namespace Pizza2
         {
             new Ingredient ("asbestos", 500000),
             new Ingredient ("space cancer", 420.69),
-            new Ingredient ("anthrax", 42)
+            new Ingredient ("anthrax", 42),
+            new Ingredient ("pineapple", 5554454114)
         };
 
     }

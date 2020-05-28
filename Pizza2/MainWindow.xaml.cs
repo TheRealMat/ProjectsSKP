@@ -24,7 +24,7 @@ namespace Pizza2
         public MainWindow()
         {
             InitializeComponent();
-
+            EditPizzaMenu.Visibility = Visibility.Collapsed;
             pizlist.DataContext = cart.PizzasInCart;
 
         }
@@ -34,5 +34,29 @@ namespace Pizza2
             var btnsrs = (Button)sender;
             cart.PizzasInCart.Remove((Pizza)btnsrs.DataContext);
         }
+
+        private void EditPizza(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            thepiz.DataContext = ((Pizza)btnsrs.DataContext);
+
+            PizzaSelect.Visibility = Visibility.Collapsed;
+            EditPizzaMenu.Visibility = Visibility.Visible;
+        }
+
+        private void AcceptPizza(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            thepiz.DataContext = ((Pizza)btnsrs.DataContext);
+
+            PizzaSelect.Visibility = Visibility.Visible;
+            EditPizzaMenu.Visibility = Visibility.Collapsed;
+        }
+        //private void NewPizza(object sender, RoutedEventArgs e)
+        //{
+        //    var btnsrs = (Button)sender;
+        //    something.datacontext = ((Pizza)btnsrs.DataContext);
+        //}
     }
 }
+

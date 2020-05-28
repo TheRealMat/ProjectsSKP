@@ -29,14 +29,36 @@
                                     </Grid.RowDefinitions>
                                     <TextBlock Text="{Binding Name}"/>
                                     <Button Click="RemovePizza" Content="🗙" Height="10" Width="10"></Button>
+                                    <Button Click="EditPizza" Content="aaaa" Height="30" Width="30"></Button>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    <Button Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
+                    <Button Click="AcceptPizza" Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
 
+
+
+
+        <Grid x:Name="EditPizzaMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="9*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="ooga booga editing pizza"  Margin="1" TextAlignment="Center"/>
+            <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
+                <StackPanel>
+                    <ItemsControl x:Name="thepiz" ItemsSource="{Binding}" >
+
+                    </ItemsControl>
+                    
+                    <Button Click="AcceptPizza" Content="✓" Height="25" Width="50"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
     </Grid>
 </Window>
