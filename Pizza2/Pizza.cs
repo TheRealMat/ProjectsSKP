@@ -8,7 +8,7 @@ namespace Pizza2
     class Pizza
     {
         public string Name { get; set; }
-        int Bread { get; set; }
+        public int Bread { get; set; }
         int Cheese { get; set; }
 
         // list of toppings
@@ -21,6 +21,11 @@ namespace Pizza2
         public Pizza(string name)
         {
             this.Name = name;
+        }
+
+        public void SetBread(int amount)
+        {
+            Bread = amount;
         }
 
     }

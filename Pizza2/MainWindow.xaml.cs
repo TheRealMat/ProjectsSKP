@@ -21,6 +21,7 @@ namespace Pizza2
     public partial class MainWindow : Window
     {
         Cart cart = new Cart { };
+        Pizza pizza;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +41,8 @@ namespace Pizza2
         {
             var btnsrs = (Button)sender;
             thepiz.DataContext = ((Pizza)btnsrs.DataContext);
+            pizza = ((Pizza)btnsrs.DataContext);
+            BreadDropdown.SelectedIndex = pizza.Bread;
 
             PizzaSelect.Visibility = Visibility.Collapsed;
             EditPizzaMenu.Visibility = Visibility.Visible;
@@ -49,6 +52,7 @@ namespace Pizza2
         {
             var btnsrs = (Button)sender;
             thepiz.DataContext = ((Pizza)btnsrs.DataContext);
+            pizza.SetBread(BreadDropdown.SelectedIndex);
 
             PizzaSelect.Visibility = Visibility.Visible;
             EditPizzaMenu.Visibility = Visibility.Collapsed;
