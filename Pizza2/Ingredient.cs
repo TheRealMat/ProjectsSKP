@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Pizza2
 {
-    class Ingredient
+    public class Ingredient
     {
-        public string name;
-        public double price;
+        public string Name { get; set; }
+        public double Price { get; set; }
 
         public Ingredient(string name, double price)
         {
-            this.name = name;
-            this.price = price;
+            this.Name = name;
+            this.Price = price;
         }
     }
 }

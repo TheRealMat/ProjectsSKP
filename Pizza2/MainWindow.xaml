@@ -56,13 +56,13 @@
                 <StackPanel>
                     <CheckBox  x:Name="LargeCheck" Content="large"/>
                     <TextBlock Text="bread"/>
-                    <ComboBox x:Name="BreadDropdown" ItemsSource="{Binding}" DisplayMemberPath="" SelectedItem="{Binding Path=Bread, Mode=TwoWay}">
+                    <ComboBox x:Name="BreadDropdown" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Bread, Mode=TwoWay}">
                     </ComboBox>
                     <TextBlock Text="cheese"/>
-                    <ComboBox x:Name="CheeseDropdown" ItemsSource="{Binding}" DisplayMemberPath="" SelectedItem="{Binding Path=Cheese, Mode=TwoWay}">
+                    <ComboBox x:Name="CheeseDropdown" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Cheese, Mode=TwoWay}">
                     </ComboBox>
                     <TextBlock Text="Sauce"/>
-                    <ComboBox x:Name="SauceDropdown" ItemsSource="{Binding}" DisplayMemberPath="" SelectedItem="{Binding Path=Sauce, Mode=TwoWay}">
+                    <ComboBox x:Name="SauceDropdown" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Sauce, Mode=TwoWay}">
                     </ComboBox>
                     <TextBlock Text="toppings"/>
 

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace Pizza2
 {
     public static class Ingredients
     {
         // list of available ingredients
-        static List<Ingredient> IngredientsList { get; set; } = new List<Ingredient>()
+        public static ObservableCollection<Ingredient> IngredientsList { get; set; } = new ObservableCollection<Ingredient>()
         {
             new Ingredient ("asbestos", 1),
             new Ingredient ("space cancer", 420.69),
@@ -16,26 +17,26 @@ namespace Pizza2
             new Ingredient ("rat meat", 9.99)
         };
 
-        public static Dictionary<string, double> BreadTypesList { get; set; } = new Dictionary<string, double>()
+        public static ObservableCollection<Ingredient> BreadTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            {"flat bread", 100},
-            {"pancake", 200},
-            {"piece of toast", 5},
-            {"cardboard", 3}
+            new Ingredient("flat bread", 100),
+            new Ingredient("pancake", 200),
+            new Ingredient("piece of toast", 5),
+            new Ingredient("cardboard", 3)
         };
 
-        public static Dictionary<string, double> CheeseTypesList { get; set; } = new Dictionary<string, double>()
+        public static ObservableCollection<Ingredient> CheeseTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            {"stinky", 5},
-            {"the moon", 50000000000000000.99},
-            {"moldy", 4},
-            {"no cheese :(", 0}
+            new Ingredient("stinky", 5),
+            new Ingredient("the moon", 50000000000000000.99),
+            new Ingredient("moldy",4),
+            new Ingredient("no cheese :(",0)
         };
 
-        public static Dictionary<string, double> SauceTypesList { get; set; } = new Dictionary<string, double>()
+        public static ObservableCollection<Ingredient> SauceTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            {"liquid gibs", 4},
-            {"toxic waste", 2}
+            new Ingredient("liquid gibs",4),
+            new Ingredient("toxic waste",2)
         };
     }
 }
