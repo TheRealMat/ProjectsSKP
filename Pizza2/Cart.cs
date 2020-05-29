@@ -12,5 +12,8 @@ namespace Pizza2
         {
             new Pizza("flat fucking bread")
         };
+        public ObservableCollection<Drink> DrinksInCart = new ObservableCollection<Drink>()
+        {
+        };
     }
 }

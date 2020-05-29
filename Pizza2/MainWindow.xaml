@@ -17,6 +17,7 @@
             <TextBlock Grid.Row="0" Text="here are your pizzas you fucking fat slob"  Margin="1" TextAlignment="Center"/>
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
+                    <TextBlock Text="pizzas"/>
                     <ItemsControl x:Name="pizlist" ItemsSource="{Binding}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="{x:Type local:Pizza}">
@@ -37,6 +38,33 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                     <Button Click="NewPizza" Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
+                    
+                    
+                    <TextBlock Text="drinks"/>
+                    <ItemsControl x:Name="drinkslist" ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type local:Drink}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="0"/>
+                                    <RadioButton BindingGroup="{Binding DrinkSize}" Grid.Column="1" IsChecked="True">small</RadioButton>
+                                    <RadioButton BindingGroup="{Binding DrinkSize}" Grid.Column="2">medium</RadioButton>
+                                    <RadioButton BindingGroup="{Binding DrinkSize}" Grid.Column="3">large</RadioButton>
+                                    <Button Click="RemoveDrink" Content="🗙" Height="30" Width="30" Grid.Column="4"></Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <Button Click="NewDrink" Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

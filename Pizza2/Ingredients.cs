@@ -29,14 +29,14 @@ namespace Pizza2
         {
             new Ingredient("stinky", 5),
             new Ingredient("the moon", 50000000000000000.99),
-            new Ingredient("moldy",4),
-            new Ingredient("no cheese :(",0)
+            new Ingredient("moldy", 4),
+            new Ingredient("no cheese :(", 0)
         };
 
         public static ObservableCollection<Ingredient> SauceTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("liquid gibs",4),
-            new Ingredient("toxic waste",2)
+            new Ingredient("liquid gibs", 4),
+            new Ingredient("toxic waste", 2)
         };
     }
 }
