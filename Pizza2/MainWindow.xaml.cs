@@ -33,6 +33,7 @@ namespace Pizza2
             CheeseDropdown.DataContext = Ingredients.CheeseTypesList;
             SauceDropdown.DataContext = Ingredients.SauceTypesList;
 
+
         }
 
         private void RemovePizza(object sender, RoutedEventArgs e)

@@ -10,7 +10,8 @@ namespace Pizza2
         public static ObservableCollection<Drink> DrinksList { get; set; } = new ObservableCollection<Drink>()
         {
             new Drink("Boda", 3),
-            new Drink("Bepis", 4)
+            new Drink("Bepis", 4),
+            new Drink("Dr. Gibb", 3)
         };
     }
 }

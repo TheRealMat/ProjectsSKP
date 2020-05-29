@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace Pizza2
 {
@@ -33,5 +34,8 @@ namespace Pizza2
                 DrinkPrize *= 1.25;
             }
         }
+
+        // can't get binding to work without duplicate list
+        public ObservableCollection<Drink> DrinksListCopy { get; set; } = Drinks.DrinksList;
     }
 }
