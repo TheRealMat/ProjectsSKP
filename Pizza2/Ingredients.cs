@@ -31,5 +31,11 @@ namespace Pizza2
             {"moldy", 4},
             {"no cheese :(", 0}
         };
+
+        public static Dictionary<string, double> SauceTypesList { get; set; } = new Dictionary<string, double>()
+        {
+            {"liquid gibs", 4},
+            {"toxic waste", 2}
+        };
     }
 }

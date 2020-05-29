@@ -27,7 +27,10 @@ namespace Pizza2
             InitializeComponent();
             EditPizzaMenu.Visibility = Visibility.Collapsed;
             pizlist.DataContext = cart.PizzasInCart;
+
             BreadDropdown.DataContext = Ingredients.BreadTypesList;
+            CheeseDropdown.DataContext = Ingredients.CheeseTypesList;
+            SauceDropdown.DataContext = Ingredients.SauceTypesList;
 
         }
 
@@ -42,17 +45,30 @@ namespace Pizza2
             var btnsrs = (Button)sender;
             thepiz.DataContext = ((Pizza)btnsrs.DataContext);
             pizza = ((Pizza)btnsrs.DataContext);
+
             BreadDropdown.SelectedIndex = pizza.Bread;
+            CheeseDropdown.SelectedIndex = pizza.Cheese;
+            SauceDropdown.SelectedIndex = pizza.Sauce;
+            LargeCheck.IsChecked = pizza.IsLarge;
 
             PizzaSelect.Visibility = Visibility.Collapsed;
             EditPizzaMenu.Visibility = Visibility.Visible;
+        }
+
+        private void NewPizza(object sender, RoutedEventArgs e)
+        {
+            cart.PizzasInCart.Add(new Pizza("pizza"));
         }
 
         private void AcceptPizza(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
             thepiz.DataContext = ((Pizza)btnsrs.DataContext);
+
             pizza.SetBread(BreadDropdown.SelectedIndex);
+            pizza.SetCheese(CheeseDropdown.SelectedIndex);
+            pizza.SetSauce(SauceDropdown.SelectedIndex);
+            pizza.IsLarge = LargeCheck.IsChecked.Value;
 
             PizzaSelect.Visibility = Visibility.Visible;
             EditPizzaMenu.Visibility = Visibility.Collapsed;

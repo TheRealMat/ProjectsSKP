@@ -10,21 +10,6 @@ namespace Pizza2
 
         public ObservableCollection<Pizza> PizzasInCart = new ObservableCollection<Pizza>()
         {
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
-            new Pizza("flat fucking bread"),
             new Pizza("flat fucking bread")
         };
     }

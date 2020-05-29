@@ -23,18 +23,20 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Text="{Binding Name}"/>
-                                    <Button Click="RemovePizza" Content="🗙" Height="10" Width="10"></Button>
-                                    <Button Click="EditPizza" Content="aaaa" Height="30" Width="30"></Button>
+                                    <TextBlock Text="{Binding Name}" Grid.Column="0"/>
+                                    <Button Click="RemovePizza" Content="🗙" Height="30" Width="30" Grid.Column="1"></Button>
+                                    <Button Click="EditPizza" Content="Change" Height="30" Width="30" Grid.Column="2"></Button>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    <Button Click="AcceptPizza" Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
+                    <Button Click="NewPizza" Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
@@ -52,25 +54,26 @@
             <TextBlock Grid.Row="0" Text="ooga booga editing pizza"  Margin="1" TextAlignment="Center"/>
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
+                    <CheckBox  x:Name="LargeCheck" Content="large"/>
                     <TextBlock Text="bread"/>
-                    <ComboBox x:Name="BreadDropdown" ItemsSource="{Binding}" SelectedItem="{Binding Path=Bread, Mode=TwoWay}">
+                    <ComboBox x:Name="BreadDropdown" ItemsSource="{Binding}" DisplayMemberPath="" SelectedItem="{Binding Path=Bread, Mode=TwoWay}">
                     </ComboBox>
-                    
-                    
-                    
+                    <TextBlock Text="cheese"/>
+                    <ComboBox x:Name="CheeseDropdown" ItemsSource="{Binding}" DisplayMemberPath="" SelectedItem="{Binding Path=Cheese, Mode=TwoWay}">
+                    </ComboBox>
+                    <TextBlock Text="Sauce"/>
+                    <ComboBox x:Name="SauceDropdown" ItemsSource="{Binding}" DisplayMemberPath="" SelectedItem="{Binding Path=Sauce, Mode=TwoWay}">
+                    </ComboBox>
+                    <TextBlock Text="toppings"/>
+
                     <ItemsControl x:Name="thepiz" ItemsSource="{Binding}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="{x:Type local:Pizza}">
-                                
+
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
 
-                        <TextBlock Text="cheez"/>
 
-
-                        <TextBlock Text="that there stuff that goes on top"/>
-                        
-                        
                     </ItemsControl>
                     <Button Click="AcceptPizza" Content="✓" Height="25" Width="50"/>
                 </StackPanel>

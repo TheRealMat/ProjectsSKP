@@ -9,10 +9,11 @@ namespace Pizza2
     {
         public string Name { get; set; }
         public int Bread { get; set; }
-        int Cheese { get; set; }
-
+        public int Cheese { get; set; }
+        public int Sauce { get; set; }
+        public bool IsLarge { get; set; }
+        public double PizzaPrize { get; set; }
         // list of toppings
-        // pizza size
         // total price
 
         ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
@@ -22,11 +23,21 @@ namespace Pizza2
         {
             this.Name = name;
         }
+        public void UpdatePrice()
+        {
+        }
 
         public void SetBread(int amount)
         {
             Bread = amount;
         }
-
+        public void SetCheese(int amount)
+        {
+            Cheese = amount;
+        }
+        public void SetSauce(int amount)
+        {
+            Sauce = amount;
+        }
     }
 }
