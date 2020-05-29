@@ -8,10 +8,19 @@ namespace Pizza2
     class Pizza
     {
         public string Name { get; set; }
-        public int Bread { get; set; }
-        public int Cheese { get; set; }
-        public int Sauce { get; set; }
-        public bool IsLarge { get; set; }
+
+
+        private int bread;
+        public int Bread { get { return bread; } set { bread = value; UpdatePrice(); } }
+
+        private int cheese;
+        public int Cheese { get { return cheese; } set { cheese = value; UpdatePrice(); } }
+
+        private int sauce;
+        public int Sauce { get { return sauce; } set { sauce = value; UpdatePrice(); } }
+
+        private bool isLarge;
+        public bool IsLarge { get { return isLarge; } set { isLarge = value; UpdatePrice(); } }
         public double PizzaPrize { get; set; }
         // list of toppings
         // total price
@@ -25,6 +34,11 @@ namespace Pizza2
         }
         public void UpdatePrice()
         {
+            PizzaPrize = Ingredients.BreadTypesList[Bread].Price + Ingredients.CheeseTypesList[Cheese].Price + Ingredients.SauceTypesList[Sauce].Price;
+            if (IsLarge)
+            {
+                PizzaPrize *= 1.25;
+            }
         }
 
         public void SetBread(int amount)
