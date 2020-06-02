@@ -18,16 +18,16 @@ namespace Pizza2
 
 
         private int bread;
-        public int Bread { get { return bread; } set { bread = value; UpdatePrice(); OnPropertyChanged(); } }
+        public int Bread { get { return bread; } set { bread = value; Update(); OnPropertyChanged(); } }
 
         private int cheese;
-        public int Cheese { get { return cheese; } set { cheese = value; UpdatePrice(); OnPropertyChanged(); } }
+        public int Cheese { get { return cheese; } set { cheese = value; Update(); OnPropertyChanged(); } }
 
         private int sauce;
-        public int Sauce { get { return sauce; } set { sauce = value; UpdatePrice(); OnPropertyChanged(); } }
+        public int Sauce { get { return sauce; } set { sauce = value; Update(); OnPropertyChanged(); } }
 
         private bool isLarge;
-        public bool IsLarge { get { return isLarge; } set { isLarge = value; UpdatePrice(); OnPropertyChanged(); } }
+        public bool IsLarge { get { return isLarge; } set { isLarge = value; Update(); OnPropertyChanged(); } }
         private double pizzaPrize;
         public double PizzaPrize { get { return pizzaPrize; } set { pizzaPrize = value; OnPropertyChanged(); } }
         // list of toppings
@@ -36,13 +36,14 @@ namespace Pizza2
         ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
 
 
+
         public Pizza(int bread, int cheese, int sauce, ObservableCollection<Ingredient> pizzaIngredients)
         {
             this.Bread = bread;
             this.Cheese = cheese;
             this.Sauce = sauce;
             this.PizzaIngredients = pizzaIngredients;
-            UpdatePrice();
+            Update();
         }
         public void UpdatePrice()
         {
@@ -51,6 +52,20 @@ namespace Pizza2
             {
                 PizzaPrize *= 1.25;
             }
+        }
+        public void Update()
+        {
+            UpdatePrice();
+            UpdateName();
+        }
+        public void UpdateName()
+        {
+            Name = "";
+            if (isLarge)
+            {
+                Name += "Large ";
+            }
+            Name += $"{Ingredients.BreadTypesList[bread].Name} pizza with {Ingredients.CheeseTypesList[cheese].Name}, {Ingredients.SauceTypesList[sauce].Name}";
         }
 
         public void SetBread(int amount)
