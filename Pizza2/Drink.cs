@@ -40,11 +40,11 @@ namespace Pizza2
             {
                 DrinkPrizeAdjusted = DrinkPrize * 0.75;
             }
-            if (DrinkSize == 1)
+            else if (DrinkSize == 1)
             {
                 DrinkPrizeAdjusted = DrinkPrize;
             }
-            if (DrinkSize == 2)
+            else if (DrinkSize == 2)
             {
                 DrinkPrizeAdjusted = DrinkPrize * 1.25;
             }

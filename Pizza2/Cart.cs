@@ -8,12 +8,13 @@ namespace Pizza2
     class Cart
     {
 
-        public ObservableCollection<Pizza> PizzasInCart = new ObservableCollection<Pizza>()
+        public ObservableCollection<Pizza> PizzasInCart { get; set; } = new ObservableCollection<Pizza>()
         {
             new Pizza("flat fucking bread")
         };
-        public ObservableCollection<Drink> DrinksInCart = new ObservableCollection<Drink>()
+        public ObservableCollection<Drink> DrinksInCart { get; set; } = new ObservableCollection<Drink>()
         {
+
         };
     }
 }

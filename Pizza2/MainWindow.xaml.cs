@@ -103,7 +103,7 @@ namespace Pizza2
             }
             foreach (Drink drink in cart.DrinksInCart)
             {
-                TotalPrize += drink.DrinkPrize;
+                TotalPrize += drink.DrinkPrizeAdjusted;
             }
             CartTotalPrice.Text = TotalPrize.ToString();
 
