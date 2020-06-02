@@ -14,7 +14,8 @@ namespace Pizza2
         private byte drinkSize;
         public byte DrinkSize { get { return drinkSize; } set { drinkSize = value; UpdatePrice(); OnPropertyChanged(); } }
 
-        public double DrinkPrize { get; set; }
+        private double drinkPrize;
+        public double DrinkPrize { get { return drinkPrize; } set { drinkPrize = value; UpdatePrice(); OnPropertyChanged(); } }
 
         private double drinkPrizeAdjusted;
         public double DrinkPrizeAdjusted { get { return drinkPrizeAdjusted; } set { drinkPrizeAdjusted = value; OnPropertyChanged(); } }
