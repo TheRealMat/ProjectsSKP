@@ -126,6 +126,22 @@ namespace Pizza2
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
+            // string compare. sue me
+            var btnsrs = (RadioButton)sender;
+            byte buttonNum = 0;
+            if (btnsrs.Name == "sizeSmall")
+            {
+                buttonNum = 0;
+            }
+            else if (btnsrs.Name == "sizeMedium")
+            {
+                buttonNum = 1;
+            }
+            else if (btnsrs.Name == "sizeLarge")
+            {
+                buttonNum = 2;
+            }
+            ((Drink)btnsrs.DataContext).DrinkSize = buttonNum;
             UpdateTotalPrice();
         }
 

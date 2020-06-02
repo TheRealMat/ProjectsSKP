@@ -2,22 +2,36 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Pizza2
 {
-    public class Drink
+    public class Drink : INotifyPropertyChanged
     {
+        public string Name { get; set; }
+
+        private byte drinkSize;
+        public byte DrinkSize { get { return drinkSize; } set { drinkSize = value; UpdatePrice(); OnPropertyChanged(); } }
+
+        public double DrinkPrize { get; set; }
+
+        private double drinkPrizeAdjusted;
+        public double DrinkPrizeAdjusted { get { return drinkPrizeAdjusted; } set { drinkPrizeAdjusted = value; OnPropertyChanged(); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+
         public Drink(string name, double drinkPrize)
         {
             this.Name = name;
             this.DrinkPrize = drinkPrize;
+            UpdatePrice();
         }
-        public string Name { get; set; }
-
-        public byte DrinkSize { get; set; }
-
-        public double DrinkPrize { get; set; }
-        public double DrinkPrizeAdjusted { get; set; }
 
         // this is stupid
         public void UpdatePrice()

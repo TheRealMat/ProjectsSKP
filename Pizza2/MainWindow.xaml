@@ -60,9 +60,9 @@
                                     </Grid.RowDefinitions>
                                     <ComboBox SelectedIndex="0" ItemsSource="{Binding DrinksListCopy}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
 
-                                    <RadioButton BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="1" IsChecked="True">small</RadioButton>
-                                    <RadioButton BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="2">medium</RadioButton>
-                                    <RadioButton BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="3">large</RadioButton>
+                                    <RadioButton Name="sizeSmall" DataContext="{Binding}" BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="1" IsChecked="True">small</RadioButton>
+                                    <RadioButton Name="sizeMedium" DataContext="{Binding}" BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="2">medium</RadioButton>
+                                    <RadioButton Name="sizeLarge" DataContext="{Binding}" BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="3">large</RadioButton>
                                     <Button Click="RemoveDrink" Content="🗙" Height="30" Width="30" Grid.Column="4"></Button>
                                 </Grid>
                             </DataTemplate>
