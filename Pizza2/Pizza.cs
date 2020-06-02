@@ -36,11 +36,12 @@ namespace Pizza2
         ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
 
 
-        public Pizza(int bread, int cheese, int sauce)
+        public Pizza(int bread, int cheese, int sauce, ObservableCollection<Ingredient> pizzaIngredients)
         {
             this.Bread = bread;
             this.Cheese = cheese;
             this.Sauce = sauce;
+            this.PizzaIngredients = pizzaIngredients;
             UpdatePrice();
         }
         public void UpdatePrice()

@@ -30,7 +30,10 @@ namespace Pizza2
             new Ingredient("proscuitto", 0),
             new Ingredient("beep", 0),
             new Ingredient("anchovies", 0),
-            new Ingredient("capers", 0)
+            new Ingredient("capers", 0),
+            new Ingredient("oregano", 0),
+            new Ingredient("eggs", 0),
+            new Ingredient("parmesan", 0)
         };
 
         public static ObservableCollection<Ingredient> BreadTypesList { get; set; } = new ObservableCollection<Ingredient>()

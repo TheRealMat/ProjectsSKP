@@ -9,7 +9,12 @@ namespace Pizza2
     {
         public static ObservableCollection<Pizza> PizzasList { get; set; } = new ObservableCollection<Pizza>()
         {
-            new Pizza(0, 0, 0)
+            // Margherita
+            new Pizza(0, 0, 0, new ObservableCollection<Ingredient>(){Ingredients.IngredientsList[21]}),
+
+            // Carbonara
+            new Pizza(0, 0, 0, new ObservableCollection<Ingredient>(){Ingredients.IngredientsList[23], Ingredients.IngredientsList[22], Ingredients.IngredientsList[2]})
+
         };
     }
 }
