@@ -58,7 +58,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
-                                    <ComboBox SelectedIndex="0" ItemsSource="{Binding DrinksListCopy}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
+                                    <ComboBox SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding DrinksListCopy}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
 
                                     <RadioButton Name="sizeSmall" DataContext="{Binding}" BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="1" IsChecked="True">small</RadioButton>
                                     <RadioButton Name="sizeMedium" DataContext="{Binding}" BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="2">medium</RadioButton>

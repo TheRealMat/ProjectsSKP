@@ -157,6 +157,14 @@ namespace Pizza2
             pizza.IsLarge = false;
         }
 
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var btnsrs = (ComboBox)sender;
+            ((Drink)btnsrs.DataContext).DrinkPrize = Drinks.DrinksList[btnsrs.SelectedIndex].DrinkPrize;
+            ((Drink)btnsrs.DataContext).Name = Drinks.DrinksList[btnsrs.SelectedIndex].Name;
+            UpdateTotalPrice();
+        }
+
         //private void NewPizza(object sender, RoutedEventArgs e)
         //{
         //    var btnsrs = (Button)sender;
