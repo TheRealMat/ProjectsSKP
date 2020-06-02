@@ -10,33 +10,50 @@ namespace Pizza2
         // list of available ingredients
         public static ObservableCollection<Ingredient> IngredientsList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient ("asbestos", 1),
-            new Ingredient ("space cancer", 420.69),
-            new Ingredient ("anthrax", 42),
-            new Ingredient ("pineapple", 14),
-            new Ingredient ("rat meat", 9.99)
+            new Ingredient("pepperoni", 0),
+            new Ingredient("mozzarella", 0),
+            new Ingredient("bacon", 0),
+            new Ingredient("garlic", 0),
+            new Ingredient("sausage", 0),
+            new Ingredient("onion", 0),
+            new Ingredient("mushroom", 0),
+            new Ingredient("tomato", 0),
+            new Ingredient("parmigiano-reggiano", 0),
+            new Ingredient("red pepper", 0),
+            new Ingredient("ham", 0),
+            new Ingredient("chicken", 0),
+            new Ingredient("olives", 0),
+            new Ingredient("green pepper", 0),
+            new Ingredient("pineapple", 0),
+            new Ingredient("salami", 0),
+            new Ingredient("jalapeño", 0),
+            new Ingredient("proscuitto", 0),
+            new Ingredient("beep", 0),
+            new Ingredient("anchovies", 0),
+            new Ingredient("capers", 0)
         };
 
         public static ObservableCollection<Ingredient> BreadTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("flat bread", 100),
-            new Ingredient("pancake", 200),
-            new Ingredient("piece of toast", 5),
-            new Ingredient("cardboard", 3)
+            new Ingredient("neapolitan", 0),
+            new Ingredient("chicago", 0),
+            new Ingredient("greek", 0),
+            new Ingredient("siliciann", 0)
         };
 
         public static ObservableCollection<Ingredient> CheeseTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("stinky", 5),
-            new Ingredient("the moon", 50000000000000000.99),
-            new Ingredient("moldy", 4),
-            new Ingredient("no cheese :(", 0)
+            new Ingredient("mozzarella", 0),
+            new Ingredient("provolene", 0),
+            new Ingredient("cheddar", 0),
+            new Ingredient("parmesan", 0),
+            new Ingredient("none", 0)
         };
 
         public static ObservableCollection<Ingredient> SauceTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("liquid gibs", 4),
-            new Ingredient("toxic waste", 2)
+            new Ingredient("tomato sauce", 0),
+            new Ingredient("none", 0)
         };
     }
 }

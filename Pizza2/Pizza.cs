@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace Pizza2
 {
-    class Pizza : INotifyPropertyChanged
+    public class Pizza : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
@@ -36,9 +36,11 @@ namespace Pizza2
         ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
 
 
-        public Pizza(string name)
+        public Pizza(int bread, int cheese, int sauce)
         {
-            this.Name = name;
+            this.Bread = bread;
+            this.Cheese = cheese;
+            this.Sauce = sauce;
             UpdatePrice();
         }
         public void UpdatePrice()

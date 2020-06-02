@@ -71,7 +71,7 @@ namespace Pizza2
 
         private void NewPizza(object sender, RoutedEventArgs e)
         {
-            cart.PizzasInCart.Add(new Pizza("pizza"));
+            cart.PizzasInCart.Add(new Pizza(0, 0, 0));
             UpdateTotalPrice();
         }
         private void NewDrink(object sender, RoutedEventArgs e)
