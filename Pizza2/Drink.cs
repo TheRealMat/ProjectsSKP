@@ -17,21 +17,22 @@ namespace Pizza2
         public byte DrinkSize { get; set; }
 
         public double DrinkPrize { get; set; }
+        public double DrinkPrizeAdjusted { get; set; }
 
         // this is stupid
         public void UpdatePrice()
         {
             if (DrinkSize == 0)
             {
-                DrinkPrize *= 0.75;
+                DrinkPrizeAdjusted = DrinkPrize * 0.75;
             }
             if (DrinkSize == 1)
             {
-
+                DrinkPrizeAdjusted = DrinkPrize;
             }
             if (DrinkSize == 2)
             {
-                DrinkPrize *= 1.25;
+                DrinkPrizeAdjusted = DrinkPrize * 1.25;
             }
         }
 

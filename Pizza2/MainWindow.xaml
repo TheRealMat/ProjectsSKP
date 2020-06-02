@@ -15,6 +15,9 @@
             <Grid.ColumnDefinitions>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Text="here are your pizzas you fucking fat slob"  Margin="1" TextAlignment="Center"/>
+            <TextBlock x:Name="CartTotalPrice">
+                
+            </TextBlock>
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
                     <TextBlock Text="pizzas"/>
@@ -57,9 +60,9 @@
                                     </Grid.RowDefinitions>
                                     <ComboBox SelectedIndex="0" ItemsSource="{Binding DrinksListCopy}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
 
-                                    <RadioButton BindingGroup="{Binding DrinkSize}" Grid.Column="1" IsChecked="True">small</RadioButton>
-                                    <RadioButton BindingGroup="{Binding DrinkSize}" Grid.Column="2">medium</RadioButton>
-                                    <RadioButton BindingGroup="{Binding DrinkSize}" Grid.Column="3">large</RadioButton>
+                                    <RadioButton BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="1" IsChecked="True">small</RadioButton>
+                                    <RadioButton BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="2">medium</RadioButton>
+                                    <RadioButton BindingGroup="{Binding DrinkSize}" Checked="RadioButton_Checked" Grid.Column="3">large</RadioButton>
                                     <Button Click="RemoveDrink" Content="🗙" Height="30" Width="30" Grid.Column="4"></Button>
                                 </Grid>
                             </DataTemplate>
@@ -84,7 +87,7 @@
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
                     <TextBlock x:Name="PizzaPrize" Text="{Binding Path=PizzaPrize, Mode=TwoWay, NotifyOnSourceUpdated=True}"/>
-                    <CheckBox  x:Name="LargeCheck" Content="large"/>
+                    <CheckBox  x:Name="LargeCheck" Checked="LargeCheck_Checked" Unchecked="LargeCheck_Unchecked" Content="large"/>
                     <TextBlock Text="bread"/>
                     <ComboBox x:Name="BreadDropdown" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectionChanged="BreadDropdown_SelectionChanged" SelectedItem="{Binding Path=Bread, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     </ComboBox>
