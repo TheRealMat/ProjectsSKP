@@ -32,6 +32,7 @@ namespace Pizza2
             BreadDropdown.DataContext = Ingredients.BreadTypesList;
             CheeseDropdown.DataContext = Ingredients.CheeseTypesList;
             SauceDropdown.DataContext = Ingredients.SauceTypesList;
+            
 
 
         }
@@ -57,6 +58,7 @@ namespace Pizza2
             CheeseDropdown.SelectedIndex = pizza.Cheese;
             SauceDropdown.SelectedIndex = pizza.Sauce;
             LargeCheck.IsChecked = pizza.IsLarge;
+            PizzaPrize.DataContext = pizza;
 
             PizzaSelect.Visibility = Visibility.Collapsed;
             EditPizzaMenu.Visibility = Visibility.Visible;
@@ -82,6 +84,21 @@ namespace Pizza2
 
             PizzaSelect.Visibility = Visibility.Visible;
             EditPizzaMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void SauceDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            pizza.SetSauce(SauceDropdown.SelectedIndex);
+        }
+
+        private void CheeseDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            pizza.SetCheese(CheeseDropdown.SelectedIndex);
+        }
+
+        private void BreadDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            pizza.SetBread(BreadDropdown.SelectedIndex);
         }
         //private void NewPizza(object sender, RoutedEventArgs e)
         //{

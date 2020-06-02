@@ -2,26 +2,34 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Pizza2
 {
-    class Pizza
+    class Pizza : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
         public string Name { get; set; }
 
 
         private int bread;
-        public int Bread { get { return bread; } set { bread = value; UpdatePrice(); } }
+        public int Bread { get { return bread; } set { bread = value; UpdatePrice(); OnPropertyChanged(); } }
 
         private int cheese;
-        public int Cheese { get { return cheese; } set { cheese = value; UpdatePrice(); } }
+        public int Cheese { get { return cheese; } set { cheese = value; UpdatePrice(); OnPropertyChanged(); } }
 
         private int sauce;
-        public int Sauce { get { return sauce; } set { sauce = value; UpdatePrice(); } }
+        public int Sauce { get { return sauce; } set { sauce = value; UpdatePrice(); OnPropertyChanged(); } }
 
         private bool isLarge;
-        public bool IsLarge { get { return isLarge; } set { isLarge = value; UpdatePrice(); } }
-        public double PizzaPrize { get; set; }
+        public bool IsLarge { get { return isLarge; } set { isLarge = value; UpdatePrice(); OnPropertyChanged(); } }
+        private double pizzaPrize;
+        public double PizzaPrize { get { return pizzaPrize; } set { pizzaPrize = value; OnPropertyChanged(); } }
         // list of toppings
         // total price
 
@@ -31,6 +39,7 @@ namespace Pizza2
         public Pizza(string name)
         {
             this.Name = name;
+            UpdatePrice();
         }
         public void UpdatePrice()
         {
