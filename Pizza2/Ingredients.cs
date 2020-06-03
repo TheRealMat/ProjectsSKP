@@ -10,52 +10,52 @@ namespace Pizza2
         // list of available ingredients
         public static ObservableCollection<Ingredient> IngredientsList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("pepperoni", 0),
-            new Ingredient("mozzarella", 0),
-            new Ingredient("bacon", 0),
-            new Ingredient("garlic", 0),
-            new Ingredient("sausage", 0),
-            new Ingredient("onion", 0),
-            new Ingredient("mushroom", 0),
-            new Ingredient("tomato", 0),
-            new Ingredient("parmigiano-reggiano", 0),
-            new Ingredient("red pepper", 0),
-            new Ingredient("ham", 0),
-            new Ingredient("chicken", 0),
-            new Ingredient("olives", 0),
-            new Ingredient("green pepper", 0),
-            new Ingredient("pineapple", 0),
-            new Ingredient("salami", 0),
-            new Ingredient("jalapeño", 0),
-            new Ingredient("proscuitto", 0),
-            new Ingredient("beep", 0),
-            new Ingredient("anchovies", 0),
-            new Ingredient("capers", 0),
-            new Ingredient("oregano", 0),
-            new Ingredient("eggs", 0),
-            new Ingredient("parmesan", 0)
+            new Ingredient("pepperoni", 3),
+            new Ingredient("mozzarella", 5),
+            new Ingredient("bacon", 2),
+            new Ingredient("garlic", 3),
+            new Ingredient("sausage", 5),
+            new Ingredient("onion", 3),
+            new Ingredient("mushroom", 4),
+            new Ingredient("tomato", 1),
+            new Ingredient("parmigiano-reggiano", 2),
+            new Ingredient("red pepper", 3),
+            new Ingredient("ham", 4),
+            new Ingredient("chicken", 5),
+            new Ingredient("olives", 3),
+            new Ingredient("green pepper", 4),
+            new Ingredient("pineapple", 2),
+            new Ingredient("salami", 3),
+            new Ingredient("jalapeño", 4),
+            new Ingredient("proscuitto", 2),
+            new Ingredient("beep", 3),
+            new Ingredient("anchovies", 4),
+            new Ingredient("capers", 2),
+            new Ingredient("oregano", 1),
+            new Ingredient("eggs", 3),
+            new Ingredient("parmesan", 2)
         };
 
         public static ObservableCollection<Ingredient> BreadTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("neapolitan", 0),
-            new Ingredient("chicago", 0),
-            new Ingredient("greek", 0),
-            new Ingredient("siliciann", 0)
+            new Ingredient("neapolitan", 4),
+            new Ingredient("chicago", 5),
+            new Ingredient("greek", 6),
+            new Ingredient("siliciann", 4)
         };
 
         public static ObservableCollection<Ingredient> CheeseTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("mozzarella", 0),
-            new Ingredient("provolene", 0),
-            new Ingredient("cheddar", 0),
-            new Ingredient("parmesan", 0),
+            new Ingredient("mozzarella", 4),
+            new Ingredient("provolene", 4),
+            new Ingredient("cheddar", 6),
+            new Ingredient("parmesan", 5),
             new Ingredient("no cheese", 0)
         };
 
         public static ObservableCollection<Ingredient> SauceTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
-            new Ingredient("tomato sauce", 0),
+            new Ingredient("tomato sauce", 1),
             new Ingredient("no sauce", 0)
         };
     }

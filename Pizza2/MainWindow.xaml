@@ -34,8 +34,8 @@
                                         <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
                                     <TextBlock Text="{Binding Name}" Grid.Column="0"/>
-                                    <Button Click="RemovePizza" Content="🗙" Height="30" Width="30" Grid.Column="1"></Button>
-                                    <Button Click="EditPizza" Content="Change" Height="30" Width="30" Grid.Column="2"></Button>
+                                    <Button Click="EditPizza" Content="Change" Height="30" Width="30" Grid.Column="1"></Button>
+                                    <Button Click="RemovePizza" Content="🗙" Height="30" Width="30" Grid.Column="2"></Button>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
