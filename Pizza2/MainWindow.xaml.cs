@@ -32,6 +32,7 @@ namespace Pizza2
             EditPizzaMenu.Visibility = Visibility.Collapsed;
             pizlist.DataContext = cart.PizzasInCart;
             drinkslist.DataContext = cart.DrinksInCart;
+            PresetPizzaList.DataContext = Pizzas.PizzasList;
 
             BreadDropdown.DataContext = Ingredients.BreadTypesList;
             CheeseDropdown.DataContext = Ingredients.CheeseTypesList;
@@ -164,6 +165,11 @@ namespace Pizza2
             ((Drink)btnsrs.DataContext).DrinkPrize = Drinks.DrinksList[btnsrs.SelectedIndex].DrinkPrize;
             ((Drink)btnsrs.DataContext).Name = Drinks.DrinksList[btnsrs.SelectedIndex].Name;
             UpdateTotalPrice();
+        }
+
+        private void PresetPizzaList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         //private void NewPizza(object sender, RoutedEventArgs e)

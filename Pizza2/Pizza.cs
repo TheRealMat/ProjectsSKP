@@ -66,6 +66,10 @@ namespace Pizza2
                 Name += "Large ";
             }
             Name += $"{Ingredients.BreadTypesList[bread].Name} pizza with {Ingredients.CheeseTypesList[cheese].Name}, {Ingredients.SauceTypesList[sauce].Name}";
+            foreach (Ingredient ingredient in PizzaIngredients)
+            {
+                Name += $", {ingredient.Name}";
+            }
         }
 
         public void SetBread(int amount)

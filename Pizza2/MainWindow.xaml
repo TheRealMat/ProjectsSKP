@@ -84,6 +84,7 @@
             <Grid.ColumnDefinitions>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Text="ooga booga editing pizza"  Margin="1" TextAlignment="Center"/>
+            <ComboBox x:Name="PresetPizzaList" SelectedIndex="0" SelectionChanged="PresetPizzaList_SelectionChanged"  ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
                     <TextBlock x:Name="PizzaPrize" Text="{Binding Path=PizzaPrize, Mode=TwoWay, NotifyOnSourceUpdated=True}"/>
