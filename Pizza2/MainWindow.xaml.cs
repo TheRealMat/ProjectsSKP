@@ -34,6 +34,7 @@ namespace Pizza2
             drinkslist.DataContext = cart.DrinksInCart;
             PresetPizzaList.DataContext = Pizzas.PizzasList;
 
+
             BreadDropdown.DataContext = Ingredients.BreadTypesList;
             CheeseDropdown.DataContext = Ingredients.CheeseTypesList;
             SauceDropdown.DataContext = Ingredients.SauceTypesList;
@@ -183,6 +184,26 @@ namespace Pizza2
 
 
         }
+
+        private void NewTopping(object sender, RoutedEventArgs e)
+        {
+            pizza.PizzaIngredients.Add(new Ingredient(Ingredients.IngredientsList[0].Name, Ingredients.IngredientsList[0].Price));
+            IngredientsList.DataContext = pizza.PizzaIngredients;
+        }
+
+        private void RemoveTopping(object sender, RoutedEventArgs e)
+        {
+            var btnsrs = (Button)sender;
+            pizza.PizzaIngredients.Remove((Ingredient)btnsrs.DataContext);
+        }
+
+        private void ComboBoxIngredients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+
 
         //private void NewPizza(object sender, RoutedEventArgs e)
         //{

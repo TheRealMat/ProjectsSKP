@@ -100,6 +100,31 @@
                     </ComboBox>
                     <TextBlock Text="toppings"/>
 
+
+                    <ItemsControl x:Name="IngredientsList" ItemsSource="{Binding}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type local:Ingredient}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"/>
+                                    </Grid.RowDefinitions>
+                                    <ComboBox Grid.Column="0" SelectedIndex="0" SelectionChanged="ComboBoxIngredients_SelectionChanged"  ItemsSource="{Binding IngredientsList}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
+
+                                    <Button Click="RemoveTopping"  Content="🗙" Height="30" Width="30" Grid.Column="1"></Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+
+                    <Button Click="NewTopping"  Content="+" Height="25" Width="50" HorizontalAlignment="Left"/>
+                    
+                    
+                    
                     <ItemsControl x:Name="thepiz" ItemsSource="{Binding}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate DataType="{x:Type local:Pizza}">
