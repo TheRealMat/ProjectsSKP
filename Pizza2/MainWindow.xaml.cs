@@ -68,6 +68,8 @@ namespace Pizza2
             LargeCheck.IsChecked = pizza.IsLarge;
             PizzaPrize.DataContext = pizza;
 
+            IngredientsList.DataContext = pizza.PizzaIngredients;
+
             PizzaSelect.Visibility = Visibility.Collapsed;
             EditPizzaMenu.Visibility = Visibility.Visible;
         }
@@ -185,12 +187,12 @@ namespace Pizza2
 
         }
 
+        // why doesn't this work????
         private void NewTopping(object sender, RoutedEventArgs e)
         {
             pizza.PizzaIngredients.Add(new Ingredient(Ingredients.IngredientsList[0].Name, Ingredients.IngredientsList[0].Price));
-            IngredientsList.DataContext = pizza.PizzaIngredients;
         }
-
+        // can't test is this works
         private void RemoveTopping(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;

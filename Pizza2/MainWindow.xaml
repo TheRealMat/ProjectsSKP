@@ -112,7 +112,7 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
-                                    <ComboBox Grid.Column="0" SelectedIndex="0" SelectionChanged="ComboBoxIngredients_SelectionChanged"  ItemsSource="{Binding IngredientsList}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
+                                    <ComboBox Grid.Column="0" SelectedIndex="0" SelectionChanged="ComboBoxIngredients_SelectionChanged"  ItemsSource="{Binding IngredientsListCopy}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
 
                                     <Button Click="RemoveTopping"  Content="🗙" Height="30" Width="30" Grid.Column="1"></Button>
                                 </Grid>
