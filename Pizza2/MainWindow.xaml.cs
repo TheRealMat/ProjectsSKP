@@ -175,8 +175,17 @@ namespace Pizza2
             pizza.Sauce = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].Sauce;
             pizza.Cheese = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].Cheese;
             pizza.Bread = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].Bread;
-            pizza.PizzaIngredients = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].PizzaIngredients;
+
             pizza.PizzaPrize = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].PizzaPrize;
+
+            // why doesn't this work?
+            pizza.PizzaIngredients.Clear();
+            foreach (Ingredient ingredient in Pizzas.PizzasList[PresetPizzaList.SelectedIndex].PizzaIngredients)
+            {
+                pizza.PizzaIngredients.Add(ingredient);
+            }
+
+
 
             SauceDropdown.SelectedIndex = pizza.Sauce;
             BreadDropdown.SelectedIndex = pizza.Bread;
@@ -187,12 +196,10 @@ namespace Pizza2
 
         }
 
-        // why doesn't this work????
         private void NewTopping(object sender, RoutedEventArgs e)
         {
             pizza.PizzaIngredients.Add(new Ingredient(Ingredients.IngredientsList[0].Name, Ingredients.IngredientsList[0].Price));
         }
-        // can't test is this works
         private void RemoveTopping(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
@@ -201,7 +208,17 @@ namespace Pizza2
 
         private void ComboBoxIngredients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // the dropdown box
+            var btnsrs = (ComboBox)sender;
+            // the specific ingredient
+            var theIngredient = ((Ingredient)btnsrs.DataContext);
 
+            int ingredientIndex = pizza.PizzaIngredients.IndexOf(theIngredient);
+
+            //pizza.PizzaIngredients[ingredientIndex].Name = ((Ingredient)btnsrs.DataContext).Name;
+            //pizza.PizzaIngredients[ingredientIndex].Price = ((Ingredient)btnsrs.DataContext).Price;
+
+            pizza.PizzaIngredients[ingredientIndex] = ((Ingredient)btnsrs.DataContext);
         }
 
 
