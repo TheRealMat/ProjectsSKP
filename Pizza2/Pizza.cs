@@ -48,6 +48,10 @@ namespace Pizza2
         public void UpdatePrice()
         {
             PizzaPrize = Ingredients.BreadTypesList[Bread].Price + Ingredients.CheeseTypesList[Cheese].Price + Ingredients.SauceTypesList[Sauce].Price;
+            foreach (Ingredient ingredient in PizzaIngredients)
+            {
+                PizzaPrize += ingredient.Price;
+            }
             if (IsLarge)
             {
                 PizzaPrize *= 1.25;
