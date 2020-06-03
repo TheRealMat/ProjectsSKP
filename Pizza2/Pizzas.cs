@@ -13,7 +13,10 @@ namespace Pizza2
             new Pizza(0, 0, 0, new ObservableCollection<Ingredient>(){Ingredients.IngredientsList[21]}),
 
             // Carbonara
-            new Pizza(0, 0, 0, new ObservableCollection<Ingredient>(){Ingredients.IngredientsList[23], Ingredients.IngredientsList[22], Ingredients.IngredientsList[2]})
+            new Pizza(0, 0, 0, new ObservableCollection<Ingredient>(){Ingredients.IngredientsList[23], Ingredients.IngredientsList[22], Ingredients.IngredientsList[2]}),
+
+            // test
+            new Pizza(1, 1, 1, new ObservableCollection<Ingredient>(){Ingredients.IngredientsList[23], Ingredients.IngredientsList[22], Ingredients.IngredientsList[2]})
 
         };
     }

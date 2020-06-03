@@ -50,13 +50,13 @@ namespace Pizza2
             new Ingredient("provolene", 0),
             new Ingredient("cheddar", 0),
             new Ingredient("parmesan", 0),
-            new Ingredient("none", 0)
+            new Ingredient("no cheese", 0)
         };
 
         public static ObservableCollection<Ingredient> SauceTypesList { get; set; } = new ObservableCollection<Ingredient>()
         {
             new Ingredient("tomato sauce", 0),
-            new Ingredient("none", 0)
+            new Ingredient("no sauce", 0)
         };
     }
 }

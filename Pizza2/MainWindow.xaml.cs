@@ -159,7 +159,7 @@ namespace Pizza2
             pizza.IsLarge = false;
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxDrinks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var btnsrs = (ComboBox)sender;
             ((Drink)btnsrs.DataContext).DrinkPrize = Drinks.DrinksList[btnsrs.SelectedIndex].DrinkPrize;
@@ -169,6 +169,18 @@ namespace Pizza2
 
         private void PresetPizzaList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            pizza.Sauce = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].Sauce;
+            pizza.Cheese = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].Cheese;
+            pizza.Bread = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].Bread;
+            pizza.PizzaIngredients = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].PizzaIngredients;
+            pizza.PizzaPrize = Pizzas.PizzasList[PresetPizzaList.SelectedIndex].PizzaPrize;
+
+            SauceDropdown.SelectedIndex = pizza.Sauce;
+            BreadDropdown.SelectedIndex = pizza.Bread;
+            CheeseDropdown.SelectedIndex = pizza.Cheese;
+
+            
+
 
         }
 

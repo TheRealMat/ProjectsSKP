@@ -33,7 +33,7 @@ namespace Pizza2
         // list of toppings
         // total price
 
-        ObservableCollection<Ingredient> PizzaIngredients = new ObservableCollection<Ingredient>();
+        public ObservableCollection<Ingredient> PizzaIngredients { get; set; } = new ObservableCollection<Ingredient>();
 
 
 
