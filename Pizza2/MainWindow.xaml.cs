@@ -110,7 +110,7 @@ namespace Pizza2
             {
                 TotalPrize += drink.DrinkPrizeAdjusted;
             }
-            CartTotalPrice.Text = TotalPrize.ToString();
+            CartTotalPrice.Text = "Current total: " + TotalPrize.ToString() + " PizzaBucks™";
 
         }
 
