@@ -218,7 +218,7 @@ namespace Pizza2
             BreadDropdown.SelectedIndex = pizza.Bread;
             CheeseDropdown.SelectedIndex = pizza.Cheese;
 
-            
+
 
 
         }
@@ -226,11 +226,13 @@ namespace Pizza2
         private void NewTopping(object sender, RoutedEventArgs e)
         {
             pizza.PizzaIngredients.Add(new Ingredient(Ingredients.IngredientsList[0].Name, Ingredients.IngredientsList[0].Price));
+            pizza.UpdatePrice();
         }
         private void RemoveTopping(object sender, RoutedEventArgs e)
         {
             var btnsrs = (Button)sender;
             pizza.PizzaIngredients.Remove((Ingredient)btnsrs.DataContext);
+            pizza.UpdatePrice();
         }
 
         private void ComboBoxIngredients_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -242,10 +244,12 @@ namespace Pizza2
 
             int ingredientIndex = pizza.PizzaIngredients.IndexOf(theIngredient);
 
-            //pizza.PizzaIngredients[ingredientIndex].Name = ((Ingredient)btnsrs.DataContext).Name;
-            //pizza.PizzaIngredients[ingredientIndex].Price = ((Ingredient)btnsrs.DataContext).Price;
 
-            pizza.PizzaIngredients[ingredientIndex] = ((Ingredient)btnsrs.DataContext);
+            pizza.PizzaIngredients[ingredientIndex].Name = Ingredients.IngredientsList[btnsrs.SelectedIndex].Name;
+            pizza.PizzaIngredients[ingredientIndex].Price = Ingredients.IngredientsList[btnsrs.SelectedIndex].Price;
+
+
+            pizza.UpdatePrice();
         }
 
 
