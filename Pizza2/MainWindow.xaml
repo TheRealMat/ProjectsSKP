@@ -87,7 +87,7 @@
             <ComboBox x:Name="PresetPizzaList" SelectionChanged="PresetPizzaList_SelectionChanged"  ItemsSource="{Binding}" DisplayMemberPath="Name" SelectedItem="{Binding Path=Name, Mode=TwoWay}"/>
             <ScrollViewer Margin="3" VerticalAlignment="Top" Grid.Row="1">
                 <StackPanel>
-                    <TextBlock x:Name="PizzaPrize" Text="{Binding Path=PizzaPrize, Mode=TwoWay, NotifyOnSourceUpdated=True}"/>
+                    <TextBlock x:Name="PizzaPrize" Text="{Binding Path=PizzaPrize, Mode=TwoWay, NotifyOnSourceUpdated=True, StringFormat={}{0} PizzaBucks™}"/>
                     <CheckBox  x:Name="LargeCheck" Checked="LargeCheck_Checked" Unchecked="LargeCheck_Unchecked" Content="large"/>
                     <TextBlock Text="bread"/>
                     <ComboBox x:Name="BreadDropdown" ItemsSource="{Binding}" DisplayMemberPath="Name" SelectionChanged="BreadDropdown_SelectionChanged" SelectedItem="{Binding Path=Bread, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">

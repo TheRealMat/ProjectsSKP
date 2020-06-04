@@ -32,6 +32,7 @@ namespace Pizza2
             EditPizzaMenu.Visibility = Visibility.Collapsed;
             pizlist.DataContext = cart.PizzasInCart;
             drinkslist.DataContext = cart.DrinksInCart;
+            // first entry shows class name. why?
             PresetPizzaList.DataContext = Pizzas.PizzasList;
 
 
