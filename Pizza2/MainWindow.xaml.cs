@@ -102,6 +102,7 @@ namespace Pizza2
         private void UpdateTotalPrice()
         {
             TotalPrize = 0;
+            bool isDiscount = false;
             foreach (Pizza pizza in cart.PizzasInCart)
             {
                 TotalPrize += pizza.PizzaPrize;
@@ -110,8 +111,33 @@ namespace Pizza2
             {
                 TotalPrize += drink.DrinkPrizeAdjusted;
             }
+            if (cart.PizzasInCart.Count >= 2 && cart.DrinksInCart.Count >= 2)
+            {
+                isDiscount = true;
+            }
+            if (isDiscount)
+            {
+                TotalPrize -= GetDiscount();
+            }
             CartTotalPrice.Text = "Current total: " + TotalPrize.ToString() + " PizzaBucks™";
+            if (isDiscount)
+            {
+                CartTotalPrice.Text += $" ({GetDiscount().ToString()} PizzaBucks™ discount)";
+            }
+        }
 
+
+        private double GetDiscount()
+        {
+            double maxPrice = 0;
+            foreach(Pizza pizza in cart.PizzasInCart)
+            {
+                if (Ingredients.BreadTypesList[pizza.Bread].Price > maxPrice)
+                {
+                    maxPrice = Ingredients.BreadTypesList[pizza.Bread].Price;
+                }
+            }
+            return maxPrice;
         }
 
         private void SauceDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -149,6 +175,7 @@ namespace Pizza2
             ((Drink)btnsrs.DataContext).DrinkSize = buttonNum;
             UpdateTotalPrice();
         }
+
 
 
 
